@@ -1,5 +1,8 @@
 -- init.lua
-vim.notify = require("notify")
+local ok, _ = pcall(require, "notify")
+if ok then
+	vim.notify = require("notify")
+end
 
 vim.opt.number = true
 vim.opt.wrap = true
@@ -179,7 +182,8 @@ require("mason").setup({ -- start mason config
 		},
 	},
 })
-require("lsp_signature").setup()
+-- function sign
+--require("lsp_signature").setup()
 
 require("nvim-autopairs").setup({})
 
@@ -396,3 +400,7 @@ vim.api.nvim_set_keymap("n", "gt4", ":BufferLineGoToBuffer 4<cr>", { noremap = t
 vim.api.nvim_set_keymap("n", "gt5", ":BufferLineGoToBuffer 5<cr>", { noremap = true })
 
 require("colorizer").setup()
+
+vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
+vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
