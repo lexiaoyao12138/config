@@ -49,9 +49,13 @@ return require("packer").startup(function(use)
 
 	use({ "lewis6991/gitsigns.nvim" })
 
+	use({ "skywind3000/asyncrun.vim" })
+
 	use({ "mhartington/formatter.nvim" }) -- format code
 
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	use({ "NvChad/nvim-colorizer.lua" })
+
+	use({ "folke/trouble.nvim" })
 end)
