@@ -1,7 +1,12 @@
-local util = require("formatter.util")
+local ok, formatter = pcall(require, "formatter")
+if not ok then 
+	vim.notify("formatter is not install")
+	return
+end
 
+local util = require("formatter.util")
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup({
+formatter.setup({
 	-- Enable or disable logging
 	logging = true,
 	-- Set the log level

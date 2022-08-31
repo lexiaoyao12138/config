@@ -254,7 +254,6 @@ require("bufferline").setup({
 	options = {
 		mode = "buffers",
 		number = "both",
-		indicator_icon = "▐",
 		buffer_close_icon = "★",
 		modified_icon = "●",
 		close_icon = "",
@@ -265,6 +264,10 @@ require("bufferline").setup({
 		show_buffer_default_icons = true,
 		show_tab_indicators = true,
 		diagnostics = "nvim_lsp",
+		indicator = {
+			icons = "▐",
+			style = "icon",
+		},
 	},
 })
 -- =.====================================================================================================
@@ -404,3 +407,16 @@ require("colorizer").setup()
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
 vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
+
+-- nvimtree
+vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
+
+-- gittsigns
+require("gittsigns")
+--todo
+require("todo")
+--formatter
+require("format")
+-- indent-blankline
+require("blankline")

@@ -58,4 +58,6 @@ return require("packer").startup(function(use)
 	use({ "NvChad/nvim-colorizer.lua" })
 
 	use({ "folke/trouble.nvim" })
+
+	use("lukas-reineke/indent-blankline.nvim")
 end)

@@ -1,4 +1,9 @@
-require("todo-comments").setup({
+local ok, todo = pcall(require, "todo-comments")
+if not ok then 
+	vim.notify("todo-comments is not install!!")
+	return
+end
+todo.setup({
 	signs = true, -- show icons in the signs column
 	sign_priority = 8, -- sign priority
 	-- keywords recognized as todo comments
