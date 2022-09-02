@@ -60,4 +60,6 @@ return require("packer").startup(function(use)
 	use({ "folke/trouble.nvim" })
 
 	use("lukas-reineke/indent-blankline.nvim")
+
+	use({ "nvim-lualine/lualine.nvim" })
 end)

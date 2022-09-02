@@ -423,3 +423,5 @@ require("todo")
 require("format")
 -- indent-blankline
 require("blankline")
+-- lualine
+require("line")
