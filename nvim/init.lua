@@ -275,6 +275,9 @@ require("bufferline").setup({
 -- =====================================================================================================
 
 require("nvim-tree").setup({
+	view = {
+		side = "left",
+	},
 	renderer = {
 		indent_markers = {
 			enable = true,
