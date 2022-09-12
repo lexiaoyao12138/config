@@ -261,7 +261,7 @@ require("bufferline").setup({
 	options = {
 		mode = "buffers",
 		number = "both",
-		buffer_close_icon = "★",
+		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
 		left_trunc_marker = "",
@@ -272,7 +272,7 @@ require("bufferline").setup({
 		show_tab_indicators = true,
 		diagnostics = "nvim_lsp",
 		indicator = {
-			icons = "▐",
+			icons = "",
 			style = "icon",
 		},
 	},
@@ -329,7 +329,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "∙", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = "", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
