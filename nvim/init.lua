@@ -183,8 +183,14 @@ require("mason").setup({ -- start mason config
 		},
 	},
 })
+
+local cfg = {
+	toggle_key = "<c-g>",
+	select_signature_key = "<c-n>",
+}
+
 -- function sign
---require("lsp_signature").setup()
+require("lsp_signature").setup(cfg)
 
 require("nvim-autopairs").setup({})
 
