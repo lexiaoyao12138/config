@@ -18,6 +18,14 @@ vim.api.nvim_command(":set bg=dark")
 vim.api.nvim_command(":colorscheme gruvbox-material")
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize +1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize -1<CR>", { noremap = true })
+--nnoremap <S-Down> :resize +1<CR>
+--nnoremap <S-Left> :vertical resize -1<CR>
+--nnoremap <S-Right> :vertical resize +1<CR>
+
 -- telescop map
 vim.api.nvim_set_keymap("n", "ff", ":Telescope find_files<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fg", ":Telescope live_grep<cr>", { noremap = true })
@@ -400,3 +408,5 @@ require("format")
 require("blankline")
 -- lualine
 require("line")
+-- nvimGDB
+require("nvimGDB")
