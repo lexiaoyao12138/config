@@ -81,4 +81,8 @@ return require("packer").startup(function(use)
 		"sakhnik/nvim-gdb",
 		run = "./install.sh",
 	})
+
+	use("godlygeek/tabular")
+
+	use("Mofiqul/vscode.nvim")
 end)
