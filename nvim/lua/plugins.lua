@@ -37,7 +37,6 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
@@ -65,11 +64,6 @@ return require("packer").startup(function(use)
 
 	use("ravenxrz/DAPInstall.nvim") -- help us install several debuggers
 
-	--use({
-	--	"ravenxrz/nvim-dap",
-	-- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
-	--})
-
 	use("mfussenegger/nvim-dap")
 
 	use("theHamsta/nvim-dap-virtual-text")
@@ -77,6 +71,7 @@ return require("packer").startup(function(use)
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "jbyuki/one-small-step-for-vimkind", module = "osv" }) -- debug any Lua code running in a Neovim instance
+
 	use({
 		"sakhnik/nvim-gdb",
 		run = "./install.sh",
@@ -85,4 +80,6 @@ return require("packer").startup(function(use)
 	use("godlygeek/tabular")
 
 	use("Mofiqul/vscode.nvim")
+
+	use("numToStr/Comment.nvim")
 end)

@@ -171,7 +171,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
-	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+	vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
 end
 
 -- auto start language server
@@ -350,7 +350,7 @@ require("gittsigns")
 --todo
 require("todo")
 --formatter
-require("format")
+-- require("format")
 -- indent-blankline
 require("blankline")
 -- lualine
@@ -359,3 +359,15 @@ require("line")
 require("nvimGDB")
 --symbols-outline
 require("symbols")
+--comment
+require("comment")
+
+--dap
+require("nvim-dap")
+
+
+-- debug
+vim.api.nvim_set_keymap("n", "BB",
+	":lua require'dap'.toggle_breakpoint()<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { noremap = true })

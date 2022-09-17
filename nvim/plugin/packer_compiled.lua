@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/dong/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["DAPInstall.nvim"] = {
     loaded = true,
     path = "/home/dong/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
@@ -152,7 +157,7 @@ _G.packer_plugins = {
   ["nvim-dap"] = {
     loaded = true,
     path = "/home/dong/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/ravenxrz/nvim-dap"
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
@@ -221,6 +226,11 @@ _G.packer_plugins = {
     path = "/home/dong/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
   },
+  tabular = {
+    loaded = true,
+    path = "/home/dong/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://github.com/godlygeek/tabular"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/dong/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -240,6 +250,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dong/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/dong/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
