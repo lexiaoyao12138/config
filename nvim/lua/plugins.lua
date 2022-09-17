@@ -16,7 +16,12 @@ return require("packer").startup(function(use)
 
 	use({ "ray-x/lsp_signature.nvim" })
 
+	-- theme
+	use("Mofiqul/vscode.nvim")
+
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
+
+	use({ 'projekt0n/github-nvim-theme' })
 
 	use({ "nvim-treesitter/nvim-treesitter" })
 
@@ -78,8 +83,6 @@ return require("packer").startup(function(use)
 	})
 
 	use("godlygeek/tabular")
-
-	use("Mofiqul/vscode.nvim")
 
 	use("numToStr/Comment.nvim")
 end)

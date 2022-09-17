@@ -13,10 +13,11 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.foldmethod = "indent"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 vim.api.nvim_command(":set bg=dark")
---vim.api.nvim_command(":colorscheme gruvbox-material")
-vim.api.nvim_command(":colorscheme vscode")
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
@@ -32,6 +33,8 @@ vim.api.nvim_set_keymap("n", "ff", ":Telescope find_files<cr>", { noremap = true
 vim.api.nvim_set_keymap("n", "fg", ":Telescope live_grep<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "fs", ":Telescope lsp_document_symbols<cr>", { noremap = true })
+
 
 require("plugins")
 
@@ -364,6 +367,9 @@ require("comment")
 
 --dap
 require("nvim-dap")
+
+--theme
+require("theme")
 
 
 -- debug
