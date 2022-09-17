@@ -17,7 +17,14 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
+--vim.api.nvim_command(":set clipboard+=unnamedplus")
 vim.api.nvim_command(":set bg=dark")
+
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
@@ -35,6 +42,7 @@ vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fs", ":Telescope lsp_document_symbols<cr>", { noremap = true })
 
+require("telescope").load_extension("emoji")
 
 require("plugins")
 
@@ -171,7 +179,7 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
 	vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
@@ -202,6 +210,7 @@ local cfg = {
 
 -- function sign
 require("lsp_signature").setup(cfg)
+
 
 require("nvim-autopairs").setup({})
 
@@ -282,14 +291,14 @@ vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
 local border = {
-	{ "🭽", "FloatBorder" },
-	{ "▔", "FloatBorder" },
-	{ "🭾", "FloatBorder" },
-	{ "▕", "FloatBorder" },
-	{ "🭿", "FloatBorder" },
-	{ "▁", "FloatBorder" },
-	{ "🭼", "FloatBorder" },
-	{ "▏", "FloatBorder" },
+	{ "┌", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "┐", "FloatBorder" },
+	{ "│", "FloatBorder" },
+	{ "┘", "FloatBorder" },
+	{ "─", "FloatBorder" },
+	{ "└", "FloatBorder" },
+	{ "│", "FloatBorder" },
 }
 
 -- LSP settings (for overriding per client)
@@ -371,9 +380,13 @@ require("nvim-dap")
 --theme
 require("theme")
 
+require("lsp_age")
+
+--require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 
 -- debug
 vim.api.nvim_set_keymap("n", "BB",
 	":lua require'dap'.toggle_breakpoint()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { noremap = true })
+

@@ -5,10 +5,8 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	use({
-		"neovim/nvim-lspconfig",
-	})
-
+	-- lsp
+	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" }) -- lspconfig install mananger
 	use({ "hrsh7th/nvim-cmp" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
@@ -16,6 +14,12 @@ return require("packer").startup(function(use)
 
 	use({ "ray-x/lsp_signature.nvim" })
 
+	-- use {
+	-- 	'kosayoda/nvim-lightbulb',
+	-- 	requires = 'antoinemadec/FixCursorHold.nvim',
+	-- }
+
+	use("glepnir/lspsaga.nvim")
 	-- theme
 	use("Mofiqul/vscode.nvim")
 
@@ -44,6 +48,8 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+
+	use('xiyaowong/telescope-emoji.nvim')
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
