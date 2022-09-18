@@ -295,6 +295,8 @@ require("toggleterm").setup({
 })
 
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
+vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 vim.api.nvim_set_keymap("n", "gt1", ":BufferLineGoToBuffer 1<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt2", ":BufferLineGoToBuffer 2<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt3", ":BufferLineGoToBuffer 3<cr>", { noremap = true })
@@ -347,5 +349,5 @@ vim.api.nvim_set_keymap("n", "BB",
 vim.api.nvim_set_keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { noremap = true })
 
-require("renamer").setup{}
+require("renamer").setup {}
 vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
