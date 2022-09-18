@@ -100,3 +100,5 @@ function man()
 # keymap
 bindkey -s '\e;'	'nv $(fzf --height 40% --preview "cat {}")\n'
 bindkey -s '\eo'  'cd $(Dir)\n'
+
+eval "$(zoxide init zsh)"

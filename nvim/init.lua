@@ -17,7 +17,8 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
---vim.api.nvim_command(":set clipboard+=unnamedplus")
+vim.api.nvim_command(":set nosplitright")
+vim.api.nvim_command(":set clipboard+=unnamedplus")
 vim.api.nvim_command(":set bg=dark")
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
@@ -35,17 +36,7 @@ vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize -1<CR>", { noremap = tru
 --nnoremap <S-Left> :vertical resize -1<CR>
 --nnoremap <S-Right> :vertical resize +1<CR>
 
--- telescop map
-vim.api.nvim_set_keymap("n", "ff", ":Telescope find_files<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "fg", ":Telescope live_grep<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "fs", ":Telescope lsp_document_symbols<cr>", { noremap = true })
-
-require("telescope").load_extension("emoji")
-
 require("plugins")
-
 -- ==============================================================================
 -- ==============================lspkind=========================================
 -- ==============================================================================
@@ -148,6 +139,7 @@ cmp.setup({
 			end,
 		}),
 	},
+
 })
 
 -- ===============================================================================
@@ -157,41 +149,6 @@ cmp.setup({
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local lspconfig = require("lspconfig")
-
-local on_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-	-- Mappings.
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	vim.keymap.set("n", "<space>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-	-- vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
-	vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
-end
-
--- auto start language server
-local servers = { "sumneko_lua", "clangd" } -- lsp-server
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-	})
-end
 
 require("mason").setup({ -- start mason config
 	ui = {
@@ -302,10 +259,6 @@ local border = {
 }
 
 -- LSP settings (for overriding per client)
-local handlers = {
-	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-}
 
 -- Do not forget to use the on_attach function
 --require 'lspconfig'.sumneko_lua.setup { handlers=handlers }
@@ -382,7 +335,10 @@ require("theme")
 
 require("lsp_age")
 
---require('nvim-lightbulb').setup({autocmd = {enabled = true}})
+require("telescope_config")
+
+require("lsp_config")
+-- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 
 -- debug
 vim.api.nvim_set_keymap("n", "BB",
@@ -390,3 +346,5 @@ vim.api.nvim_set_keymap("n", "BB",
 vim.api.nvim_set_keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { noremap = true })
 
+require("renamer").setup{}
+vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })

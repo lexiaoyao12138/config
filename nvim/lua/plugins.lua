@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
 	use({ "onsails/lspkind.nvim" })
 
 	use({ "ray-x/lsp_signature.nvim" })
+	use("p00f/clangd_extensions.nvim")
 
 	-- use {
 	-- 	'kosayoda/nvim-lightbulb',
@@ -22,10 +23,10 @@ return require("packer").startup(function(use)
 	use("glepnir/lspsaga.nvim")
 	-- theme
 	use("Mofiqul/vscode.nvim")
-
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
-
 	use({ 'projekt0n/github-nvim-theme' })
+	use 'marko-cerovac/material.nvim'
+	use 'folke/tokyonight.nvim'
 
 	use({ "nvim-treesitter/nvim-treesitter" })
 
@@ -48,8 +49,9 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-
 	use('xiyaowong/telescope-emoji.nvim')
+	-- use { 'stevearc/dressing.nvim' }
+	use('jvgrootveld/telescope-zoxide')
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
@@ -91,4 +93,13 @@ return require("packer").startup(function(use)
 	use("godlygeek/tabular")
 
 	use("numToStr/Comment.nvim")
+
+	use("RRethy/vim-illuminate")
+
+	--rename
+	use {
+		'filipdutescu/renamer.nvim',
+		branch = 'master',
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
 end)
