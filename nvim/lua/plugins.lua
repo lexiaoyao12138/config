@@ -30,6 +30,12 @@ return require("packer").startup(function(use)
 
 	use({ "nvim-treesitter/nvim-treesitter" })
 
+	use({ "kylechui/nvim-surround" })
+
+	use('m-demare/hlargs.nvim')
+
+	use ("folke/twilight.nvim")
+
 	use({ "windwp/nvim-autopairs" })
 
 	use({ "p00f/nvim-ts-rainbow" })
@@ -102,4 +108,5 @@ return require("packer").startup(function(use)
 		branch = 'master',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
+
 end)
