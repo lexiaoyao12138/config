@@ -294,6 +294,7 @@ require("toggleterm").setup({
 	},
 })
 
+vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
 vim.api.nvim_set_keymap("n", "gt1", ":BufferLineGoToBuffer 1<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt2", ":BufferLineGoToBuffer 2<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt3", ":BufferLineGoToBuffer 3<cr>", { noremap = true })
