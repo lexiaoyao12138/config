@@ -34,7 +34,7 @@ return require("packer").startup(function(use)
 
 	use('m-demare/hlargs.nvim')
 
-	use ("folke/twilight.nvim")
+	use("folke/twilight.nvim")
 
 	use({ "windwp/nvim-autopairs" })
 
@@ -108,5 +108,8 @@ return require("packer").startup(function(use)
 		branch = 'master',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
+
+	--save
+	use("Pocco81/auto-save.nvim")
 
 end)

@@ -27,10 +27,21 @@ local on_attach = function(client, bufnr)
 end
 
 -- auto start language server
-local servers = { "sumneko_lua", "clangd"} -- lsp-server
+local servers = { "sumneko_lua", "clangd", "tsserver" } -- lsp-server
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		handlers = handlers,
 	})
 end
+
+-- lspconfig.denols.setup({
+-- 	single_file_support = false
+-- })
+--
+
+
+vim.g.markdown_fenced_languages = {
+	"ts=typescript",
+	"js=javascript",
+}
