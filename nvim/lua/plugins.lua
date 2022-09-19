@@ -112,4 +112,11 @@ return require("packer").startup(function(use)
 	--save
 	use("Pocco81/auto-save.nvim")
 
+	--snip
+	use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
+
+	use "rafamadriz/friendly-snippets"
+
+	use { 'saadparwaiz1/cmp_luasnip' }
+
 end)

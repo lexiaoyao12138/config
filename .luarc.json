@@ -5,6 +5,7 @@
     ],
     "Lua.diagnostics.globals": [
         "local",
-        "headlers"
+        "headlers",
+        "i"
     ]
 }

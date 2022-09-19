@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- auto start language server
-local servers = { "sumneko_lua", "clangd", "tsserver" } -- lsp-server
+local servers = { "sumneko_lua", "clangd", "tsserver", "cmake" } -- lsp-server
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
