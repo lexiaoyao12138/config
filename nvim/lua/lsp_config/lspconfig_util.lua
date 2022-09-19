@@ -34,14 +34,3 @@ for _, lsp in ipairs(servers) do
 		handlers = handlers,
 	})
 end
-
--- lspconfig.denols.setup({
--- 	single_file_support = false
--- })
---
-
-
-vim.g.markdown_fenced_languages = {
-	"ts=typescript",
-	"js=javascript",
-}
