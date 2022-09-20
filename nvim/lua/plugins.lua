@@ -24,9 +24,6 @@ return require("packer").startup(function(use)
 	-- theme
 	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
-	use({ 'projekt0n/github-nvim-theme' })
-	use 'marko-cerovac/material.nvim'
-	use 'folke/tokyonight.nvim'
 
 	use({ "nvim-treesitter/nvim-treesitter" })
 
