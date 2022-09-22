@@ -2,13 +2,13 @@ require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all"
 	ensure_installed = { "c", "lua", "make", "go", "cpp", "html", "css", "javascript", "vim", "cmake" },
 
-	sync_install = false,
+	sync_install = true,
 
-	auto_install = false,
+	auto_install = true,
 
 	highlight = {
 		-- `false` will disable the whole extension
-		enable = false,
+		enable = true,
 		additional_vim_regex_highlighting = true,
 	},
 	rainbow = {
@@ -21,7 +21,7 @@ require("nvim-treesitter.configs").setup({
 	},
 
 	indent = {
-		enable = false
+		enable = true
 	}
 })
 

@@ -255,11 +255,11 @@ require("lsp_age")
 
 require("telescope_config")
 
+require("lsp_cmp")
 require("lsp_config")
 -- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require("nvim-tree_config")
 
-require("lsp_cmp")
 
 require("snippet")
 -- debug
