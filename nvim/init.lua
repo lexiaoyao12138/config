@@ -17,6 +17,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
+vim.api.nvim_command(":set nobackup")
 vim.api.nvim_command(":set nosplitright")
 vim.api.nvim_command(":set clipboard+=unnamedplus")
 vim.api.nvim_command(":set bg=dark")
@@ -30,26 +31,17 @@ vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize +1<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize -1<CR>", { noremap = true })
---nnoremap <S-Down> :resize +1<CR>
---nnoremap <S-Left> :vertical resize -1<CR>
---nnoremap <S-Right> :vertical resize +1<CR>
+vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize +1<CR>", { noremap = true })
+-- 右侧的函数列表
+vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", {noremap = true})
 
 require("plugins")
--- ==============================================================================
--- ==============================lspkind=========================================
--- ==============================================================================
 require("lspkind").init({
-	-- DEPRECATED (use mode instead): enables text annotations
-	--
-	-- default: true
-	-- with_text = true,
-
-	-- defines how annotations are shown
 	-- default: symbol
 	-- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-	mode = "symbol_text",
+	mode = "symbol",
 
 	-- default symbol map
 	-- can be either 'default' (requires nerd-fonts font) or
@@ -114,34 +106,6 @@ require("nvim-autopairs").setup({
 	check_ts = true,
 })
 
--- =====================================================================================================
--- =====================================================================================================
--- =====================================================================================================
-vim.opt.termguicolors = true
-require("bufferline").setup({
-	options = {
-		mode = "buffers",
-		number = "both",
-		buffer_close_icon = "",
-		modified_icon = "●",
-		close_icon = "",
-		left_trunc_marker = "",
-		right_trunc_marker = "",
-		color_icons = true,
-		show_buffer_icons = true,
-		show_buffer_default_icons = true,
-		show_tab_indicators = true,
-		diagnostics = "nvim_lsp",
-		indicator = {
-			icons = "",
-			style = "icon",
-		},
-	},
-})
--- =.====================================================================================================
--- =====================================================================================================
--- =====================================================================================================
-
 require("nvim-tree").setup({
 	view = {
 		side = "left",
@@ -193,9 +157,7 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
-	--virtual_text = {
-	--  prefix = '', -- Could be '●', '▎', 'x'
-	--}
+	-- 关闭右侧的诊断信息
 	virtual_text = false,
 })
 
@@ -228,6 +190,8 @@ vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 
+-- 顶部状态栏
+require("bufferline_config")
 -- gittsigns
 require("gittsigns")
 --todo
