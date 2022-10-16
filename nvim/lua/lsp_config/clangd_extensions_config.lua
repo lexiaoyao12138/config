@@ -30,13 +30,6 @@ end
 
 require("clangd_extensions").setup {
 
-	-- server = {
-	-- 	require("lspconfig").clangd.setup({
-	-- 		on_attach = on_attach,
-	-- 		handlers = handlers,
-	-- 	})
-	-- },
-	--
 	extensions = {
 		-- defaults:
 		-- Automatically set inlay hints (type hints)

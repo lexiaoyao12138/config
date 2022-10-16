@@ -8,7 +8,7 @@ return require("packer").startup(function(use)
 	-- lsp
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/mason.nvim" }) -- lspconfig install mananger
-	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/nvim-cmp", tag = "v0.0.1" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "onsails/lspkind.nvim" })
 
