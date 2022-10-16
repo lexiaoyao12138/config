@@ -34,8 +34,8 @@ vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize +1<CR>", { noremap = true })
 -- 右侧的函数列表
-vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", { noremap = true })
 
 require("plugins")
 require("lspkind").init({
@@ -234,4 +234,3 @@ vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { no
 
 require("renamer").setup {}
 vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-
