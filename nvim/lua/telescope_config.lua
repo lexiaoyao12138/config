@@ -4,6 +4,8 @@ vim.api.nvim_set_keymap("n", "fg", ":Telescope live_grep<cr>", { noremap = true 
 vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fs", ":Telescope lsp_document_symbols<cr>", { noremap = true })
+-- 列出光标下单词的lsp引用
+vim.api.nvim_set_keymap("n", "ls", ":Telescope lsp_references prompt_prefix=🔍 theme=cursor<CR>", {noremap = true})
 
 
 local t = require("telescope")
@@ -28,6 +30,9 @@ t.setup({
 					end
 				},
 				["<C-q>"] = { action = z_utils.create_basic_command("split") },
+			},
+			vim_bookmarks = {
+				themes = "ivy",
 			},
 		},
 	},
