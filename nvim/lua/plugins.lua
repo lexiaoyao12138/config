@@ -1,4 +1,4 @@
--- plugins.lua
+-- plugins.luaplug
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
@@ -47,14 +47,17 @@ return require("packer").startup(function(use)
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
+	-- 望远镜系列
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
-	use('xiyaowong/telescope-emoji.nvim')
 	-- use { 'stevearc/dressing.nvim' }
 	use('jvgrootveld/telescope-zoxide')
+	use('tom-anders/telescope-vim-bookmarks.nvim')
+	use("AckslD/nvim-neoclip.lua")        -- 剪切板管理
+	use ('nvim-telescope/telescope-symbols.nvim')   -- symbols
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
@@ -117,5 +120,8 @@ return require("packer").startup(function(use)
 	use "rafamadriz/friendly-snippets"
 
 	use { 'saadparwaiz1/cmp_luasnip' }
+
+	-- vim-bookmarkss 书签功能
+	use({ 'MattesGroeger/vim-bookmarks' })
 
 end)
