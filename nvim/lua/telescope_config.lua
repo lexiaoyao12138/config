@@ -1,5 +1,6 @@
 -- telescop map
-vim.api.nvim_set_keymap("n", "ff", ":Telescope find_files<cr>", { noremap = true })
+vim.keymap.set("n", "ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>")
+vim.keymap.set("n", "fm", ":Telescope vim_bookmarks theme=dropdown prompt_prefix=<cr>")
 vim.api.nvim_set_keymap("n", "fg", ":Telescope live_grep<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
@@ -14,8 +15,14 @@ require("neoclip").setup()
 
 -- Configure the extension
 t.setup({
+	pickers = {
+		find_files = {
+			previewer = false,
+		},
+	},
 	extensions = {
 		zoxide = {
+			theme = "ivy",
 			prompt_title = "[ Walking on the shoulders of TJ ]",
 			mappings = {
 				default = {

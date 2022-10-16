@@ -16,6 +16,10 @@ vim.opt.smartcase = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
+-- set bookmarks icon
+vim.cmd[[ 
+	let g:bookmark_sign="⛳"
+]]
 
 vim.api.nvim_command(":set nobackup")
 vim.api.nvim_command(":set nosplitright")
