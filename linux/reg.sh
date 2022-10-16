@@ -21,3 +21,7 @@ $(url)
 # 链接zsh配置文件
 echo "链接zsh配置文件"
 ln -sf $path/zshrc $HOME/.zshrc
+
+# omz plugs
+# syntax 高亮
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

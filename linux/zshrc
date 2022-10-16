@@ -24,6 +24,7 @@ ZSH_THEME="agnoster"
 plugins=(
 	git
 	fzf-tab
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
