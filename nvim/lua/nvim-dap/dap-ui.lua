@@ -31,15 +31,31 @@ require("dapui").setup({
 			size = 40, -- 40 columns
 			position = "left",
 		},
-		{
-			elements = {
-				"repl",
-				"console",
-			},
-			size = 0.25, -- 25% of total lines
-			position = "bottom",
-		},
+		-- {
+		-- 	elements = {
+		-- 		-- "repl",
+		-- 		"console",
+		-- 	},
+		-- 	size = 0.25, -- 25% of total lines
+		-- 	position = "bottom",
+		-- },
 	},
+	-- controls = {
+ --    -- Requires Neovim nightly (or 0.8 when released)
+ --    enabled = true,
+ --    -- Display controls in this element
+ --    element = "repl",
+ --    icons = {
+ --      pause = "",
+ --      play = "",
+ --      step_into = "",
+ --      step_over = "",
+ --      step_out = "",
+ --      step_back = "",
+ --      run_last = "↻",
+ --      terminate = "□",
+ --    },
+ --  },
 	floating = {
 		max_height = nil, -- These can be integers or a float between 0 and 1.
 		max_width = nil, -- Floats will be treated as percentage of your screen.

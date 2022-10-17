@@ -6,7 +6,7 @@ vim.api.nvim_set_keymap("n", "fb", ":Telescope buffers<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fh", ":Telescope help_tags<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "fs", ":Telescope lsp_document_symbols<cr>", { noremap = true })
 -- 列出光标下单词的lsp引用
-vim.api.nvim_set_keymap("n", "ls", ":Telescope lsp_references prompt_prefix=🔍 theme=cursor<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<space>ls", ":Telescope lsp_references prompt_prefix=🔍 theme=cursor<CR>", {noremap = true})
 
 
 local t = require("telescope")
