@@ -45,7 +45,7 @@ require("plugins")
 require("lspkind").init({
 	-- default: symbol
 	-- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-	mode = "symbol",
+	mode = "symbol_text",
 
 	-- default symbol map
 	-- can be either 'default' (requires nerd-fonts font) or
@@ -96,15 +96,6 @@ require("mason").setup({ -- start mason config
 		},
 	},
 })
-
-local cfg = {
-	toggle_key = "<c-g>",
-	select_signature_key = "<c-n>",
-}
-
--- function sign
-require("lsp_signature").setup(cfg)
-
 
 require("nvim-autopairs").setup({
 	check_ts = true,
@@ -193,6 +184,10 @@ vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
 -- nvimtree
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
+
+
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
 -- 顶部状态栏
 require("bufferline_config")
