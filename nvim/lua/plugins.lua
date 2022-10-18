@@ -56,8 +56,8 @@ return require("packer").startup(function(use)
 	-- use { 'stevearc/dressing.nvim' }
 	use('jvgrootveld/telescope-zoxide')
 	use('tom-anders/telescope-vim-bookmarks.nvim')
-	use("AckslD/nvim-neoclip.lua")        -- 剪切板管理
-	use ('nvim-telescope/telescope-symbols.nvim')   -- symbols
+	use("AckslD/nvim-neoclip.lua") -- 剪切板管理
+	use('nvim-telescope/telescope-symbols.nvim') -- symbols
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
@@ -123,5 +123,8 @@ return require("packer").startup(function(use)
 
 	-- vim-bookmarkss 书签功能
 	use({ 'MattesGroeger/vim-bookmarks' })
+
+	-- code run
+	use { "michaelb/sniprun", run = 'bash ./install.sh' }
 
 end)
