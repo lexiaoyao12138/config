@@ -145,7 +145,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = "👀", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -166,9 +166,9 @@ require("toggleterm").setup({
 	},
 })
 
-vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>", bufopts)
-vim.keymap.set("n", "<space>f", vim.lsp.buf.format, bufopts)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.api.nvim_set_keymap("n", "gt1", ":BufferLineGoToBuffer 1<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt2", ":BufferLineGoToBuffer 2<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt3", ":BufferLineGoToBuffer 3<cr>", { noremap = true })
