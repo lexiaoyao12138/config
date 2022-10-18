@@ -23,39 +23,39 @@ require("dapui").setup({
 		{
 			elements = {
 				-- Elements can be strings or table with id and size keys.
-				{id = "watches", size = 0.25},
-				{id = "breakpoints", size = 0.25},
-				{id = "stacks", size = 0.25},
-				{id = "scopes", size = 0.25},
+				{ id = "watches", size = 0.25 },
+				{ id = "breakpoints", size = 0.25 },
+				{ id = "stacks", size = 0.25 },
+				{ id = "scopes", size = 0.25 },
 			},
 			size = 40, -- 40 columns
 			position = "left",
 		},
-		-- {
-		-- 	elements = {
-		-- 		-- "repl",
-		-- 		"console",
-		-- 	},
-		-- 	size = 0.25, -- 25% of total lines
-		-- 	position = "bottom",
-		-- },
+		{
+			elements = {
+				-- "repl",
+				"console",
+			},
+			size = 0.25, -- 25% of total lines
+			position = "bottom",
+		},
 	},
 	-- controls = {
- --    -- Requires Neovim nightly (or 0.8 when released)
- --    enabled = true,
- --    -- Display controls in this element
- --    element = "repl",
- --    icons = {
- --      pause = "",
- --      play = "",
- --      step_into = "",
- --      step_over = "",
- --      step_out = "",
- --      step_back = "",
- --      run_last = "↻",
- --      terminate = "□",
- --    },
- --  },
+	--    -- Requires Neovim nightly (or 0.8 when released)
+	--    enabled = true,
+	--    -- Display controls in this element
+	--    element = "repl",
+	--    icons = {
+	--      pause = "",
+	--      play = "",
+	--      step_into = "",
+	--      step_over = "",
+	--      step_out = "",
+	--      step_back = "",
+	--      run_last = "↻",
+	--      terminate = "□",
+	--    },
+	--  },
 	floating = {
 		max_height = nil, -- These can be integers or a float between 0 and 1.
 		max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -73,6 +73,10 @@ require("dapui").setup({
 
 
 local dap, dapui = require("dap"), require("dapui")
+dap.defaults.fallback.external_terminal = {
+	command = '/usr/bin/alacritty';
+	args = { '-e' };
+}
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
