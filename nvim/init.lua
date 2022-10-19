@@ -18,9 +18,9 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 -- set bookmarks icon
-vim.cmd [[ 
-	let g:bookmark_sign="⛳"
-]]
+-- vim.cmd [[ 
+-- 	let g:bookmark_sign="⛳"
+-- ]]
 
 vim.api.nvim_command(":set nobackup")
 vim.api.nvim_command(":set nosplitright")
@@ -134,10 +134,6 @@ local border = {
 }
 
 -- LSP settings (for overriding per client)
-
--- Do not forget to use the on_attach function
---require 'lspconfig'.sumneko_lua.setup { handlers=handlers }
-
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -146,7 +142,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "👀", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = "𥉉", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
