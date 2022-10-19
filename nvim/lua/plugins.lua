@@ -25,7 +25,10 @@ return require("packer").startup(function(use)
 	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
 
-	use({ "nvim-treesitter/nvim-treesitter" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' })
+	use({ 'nvim-treesitter/nvim-treesitter-context' }) -- 顶栏显示当前的函数
+	use({ 'p00f/nvim-ts-rainbow' }) -- 彩虹括号
+	use "ziontee113/syntax-tree-surfer"   -- 语法移动
 
 	use({ "kylechui/nvim-surround" })
 
@@ -35,7 +38,7 @@ return require("packer").startup(function(use)
 
 	use({ "windwp/nvim-autopairs" })
 
-	use({ "p00f/nvim-ts-rainbow" })
+	-- use({ "p00f/nvim-ts-rainbow" })
 
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 
@@ -126,5 +129,8 @@ return require("packer").startup(function(use)
 
 	-- code run
 	use { "michaelb/sniprun", run = 'bash ./install.sh' }
+
+	-- floding
+	use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
 end)
