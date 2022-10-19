@@ -1,3 +1,5 @@
+local vim = vim
+
 local lspconfig = require("lspconfig")
 
 local handlers = {
@@ -24,10 +26,16 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 -- auto start language server
 local servers = { "sumneko_lua", "clangd", "tsserver", "cmake" } -- lsp-server
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 		handlers = handlers,
 	})

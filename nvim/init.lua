@@ -1,3 +1,4 @@
+local vim = vim
 -- init.lua
 local ok, _ = pcall(require, "notify")
 if ok then
@@ -17,7 +18,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 -- set bookmarks icon
-vim.cmd[[ 
+vim.cmd [[ 
 	let g:bookmark_sign="⛳"
 ]]
 
@@ -167,7 +168,7 @@ require("toggleterm").setup({
 })
 
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
-vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting)
+vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.api.nvim_set_keymap("n", "gt1", ":BufferLineGoToBuffer 1<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "gt2", ":BufferLineGoToBuffer 2<cr>", { noremap = true })
@@ -218,13 +219,14 @@ require("lsp_age")
 
 require("telescope_config")
 
+require("snippet")
 require("lsp_cmp")
 require("lsp_config")
 -- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require("nvim-tree_config")
+require("flod")
 
 
-require("snippet")
 -- debug
 vim.api.nvim_set_keymap("n", "BB",
 	":lua require'dap'.toggle_breakpoint()<cr>", { noremap = true })
