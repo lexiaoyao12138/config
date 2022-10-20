@@ -28,7 +28,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' })
 	use({ 'nvim-treesitter/nvim-treesitter-context' }) -- 顶栏显示当前的函数
 	use({ 'p00f/nvim-ts-rainbow' }) -- 彩虹括号
-	use "ziontee113/syntax-tree-surfer"   -- 语法移动
+	use "ziontee113/syntax-tree-surfer" -- 语法移动
 
 	use({ "kylechui/nvim-surround" })
 
@@ -82,6 +82,7 @@ return require("packer").startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
+	-- 底部状态
 	use({ "nvim-lualine/lualine.nvim" })
 
 	use("ravenxrz/DAPInstall.nvim") -- help us install several debuggers

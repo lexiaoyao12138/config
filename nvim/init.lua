@@ -190,7 +190,6 @@ require("todo")
 require("blankline")
 -- lualine
 require("line")
--- require("feline_config")
 -- nvimGDB
 require("nvimGDB")
 --symbols-outline
