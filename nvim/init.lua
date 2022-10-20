@@ -153,15 +153,6 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
--- toggle_preview
-require("toggleterm").setup({
-	open_mapping = [[<c-\>]],
-	direction = "float",
-	shade_terminals = false,
-	float_opts = {
-		border = "curved",
-	},
-})
 
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
@@ -186,6 +177,7 @@ vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
+require("toggleterm_config")
 -- 顶部状态栏
 require("bufferline_config")
 -- gittsigns
@@ -198,6 +190,7 @@ require("todo")
 require("blankline")
 -- lualine
 require("line")
+-- require("feline_config")
 -- nvimGDB
 require("nvimGDB")
 --symbols-outline
