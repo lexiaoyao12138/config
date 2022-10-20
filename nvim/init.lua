@@ -43,50 +43,6 @@ vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", { noremap = true }
 vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", { noremap = true })
 
 require("plugins")
-require("lspkind").init({
-	-- default: symbol
-	-- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-	mode = "symbol_text",
-
-	-- default symbol map
-	-- can be either 'default' (requires nerd-fonts font) or
-	-- 'codicons' for codicon preset (requires vscode-codicons font)
-	--
-	-- default: 'default'
-	preset = "codicons",
-
-	-- override preset symbols
-	--
-	-- default: {}
-	symbol_map = {
-		Text = "",
-		Method = "",
-		Function = "",
-		Constructor = "",
-		Field = "ﰠ",
-		Variable = "",
-		Class = "ﴯ",
-		Interface = "",
-		Module = "",
-		Property = "ﰠ",
-		Unit = "塞",
-		Value = "",
-		Enum = "",
-		Keyword = "",
-		Snippet = "",
-		Color = "",
-		File = "",
-		Reference = "",
-		Folder = "",
-		EnumMember = "",
-		Constant = "",
-		Struct = "פּ",
-		Event = "",
-		Operator = "",
-		TypeParameter = "",
-	},
-})
-
 
 require("mason").setup({ -- start mason config
 	ui = {
@@ -142,7 +98,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "𥉉", Hint = " ", Info = " " }
+local signs = { Error = "", Warn = "𥉉", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -202,8 +158,6 @@ require("nvim-dap")
 
 --theme
 require("theme")
-
-require("lsp_age")
 
 require("telescope_config")
 

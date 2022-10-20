@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
 	-- 	requires = 'antoinemadec/FixCursorHold.nvim',
 	-- }
 
-	use("glepnir/lspsaga.nvim")
 	-- theme
 	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
