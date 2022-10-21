@@ -143,4 +143,6 @@ return require("packer").startup(function(use)
 
 	use 'sindrets/winshift.nvim'   -- 窗口移动
 
+	use 'karb94/neoscroll.nvim'  -- 平滑滚动
+
 end)
