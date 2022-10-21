@@ -133,4 +133,14 @@ return require("packer").startup(function(use)
 	-- floding
 	use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
+	-- 动态调整窗口大小
+	use { "anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim"
+		},
+	}
+
+	use 'sindrets/winshift.nvim'   -- 窗口移动
+
 end)
