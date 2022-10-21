@@ -119,7 +119,6 @@ require("gittsigns")
 --todo
 require("todo")
 --formatter
--- require("format")
 -- indent-blankline
 require("blankline")
 -- lualine
@@ -153,12 +152,11 @@ vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "b[", ":BufferLineCyclePrev<CR>", { noremap = true })
--- vim.api.nvim_set_keymap("n", "gt5", ":BufferLineGoToBuffer 5<cr>", { noremap = true })
 
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
-vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })
-vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", { noremap = true })
 
 -- nvimtree
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
