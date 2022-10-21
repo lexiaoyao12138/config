@@ -18,7 +18,7 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 -- set bookmarks icon
--- vim.cmd [[ 
+-- vim.cmd [[
 -- 	let g:bookmark_sign="⛳"
 -- ]]
 
@@ -98,7 +98,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "𥉉", Hint = "", Info = "" }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -110,29 +110,7 @@ vim.diagnostic.config({
 })
 
 
-vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
-vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.api.nvim_set_keymap("n", "gt1", ":BufferLineGoToBuffer 1<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gt2", ":BufferLineGoToBuffer 2<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gt3", ":BufferLineGoToBuffer 3<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gt4", ":BufferLineGoToBuffer 4<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "gt5", ":BufferLineGoToBuffer 5<cr>", { noremap = true })
-
 require("colorizer").setup()
-
-vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", {})
-vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
-vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
-
--- nvimtree
-vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
-
-
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
-vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
-
 require("toggleterm_config")
 -- 顶部状态栏
 require("bufferline_config")
@@ -167,6 +145,28 @@ require("lsp_config")
 -- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require("nvim-tree_config")
 require("flod")
+require("windows_config")
+
+-- keymap
+vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "b[", ":BufferLineCyclePrev<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "gt5", ":BufferLineGoToBuffer 5<cr>", { noremap = true })
+
+
+vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
+vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })
+vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", { noremap = true })
+
+-- nvimtree
+vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
+
+
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
 
 -- debug
