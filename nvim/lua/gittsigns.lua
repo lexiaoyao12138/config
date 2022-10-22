@@ -1,5 +1,7 @@
+local vim = vim
+
 local status_ok, gitsigns = pcall(require, 'gitsigns')
-if not status_ok then 
+if not status_ok then
 	vim.notify("gitsigns is not uninstall")
 	return
 end
@@ -45,3 +47,5 @@ gitsigns.setup {
     enable = false
   },
 }
+
+vim.keymap.set("n", "gn", ":Gitsigns next_hunk<CR>")
