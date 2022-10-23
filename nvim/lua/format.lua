@@ -1,8 +1,16 @@
+local vim = vim
+
 local ok, formatter = pcall(require, "formatter")
-if not ok then 
+if not ok then
 	vim.notify("formatter is not install")
 	return
 end
+
+-- 格式化配置文件路径
+-- local language_path = function()
+-- 	return vim.fn.getcwd()
+-- end
+local language_path = "/home/dong/.config/nvim/language/"
 
 local util = require("formatter.util")
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
@@ -15,28 +23,14 @@ formatter.setup({
 	filetype = {
 		-- Formatter configurations for filetype "lua" go here
 		-- and will be executed in order
-		lua = {
-			-- "formatter.filetypes.lua" defines default configurations for the
-			-- "lua" filetype
-			require("formatter.filetypes.lua").stylua,
-
-			-- You can also define your own configuration
+		cpp = {
 			function()
-				-- Supports conditional formatting
-				if util.get_current_buffer_file_name() == "special.lua" then
-					return nil
-				end
-
-				-- Full specification of configurations is down below and in Vim help
-				-- files
 				return {
-					exe = "stylua",
+					exe = "clang-format-14",
 					args = {
-						"--search-parent-directories",
-						"--stdin-filepath",
-						util.escape_path(util.get_current_buffer_file_path()),
-						"--",
-						"-",
+						-- "-style=file:"..language_path().."/cpp.yaml",
+						"-style=file:"..language_path.."/cpp.yaml",
+						-- "-style=Microsoft",
 					},
 					stdin = true,
 				}
@@ -45,19 +39,19 @@ formatter.setup({
 
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
-		["*"] = {
-			-- "formatter.filetypes.any" defines default configurations for any
-			-- filetype
-			require("formatter.filetypes.any").remove_trailing_whitespace,
-		},
+		-- ["*"] = {
+		-- 	-- "formatter.filetypes.any" defines default configurations for any
+		-- 	-- filetype
+		-- 	require("formatter.filetypes.any").remove_trailing_whitespace,
+		-- },
 	},
 })
 
-vim.cmd([[
-	augroup FormatAutogroup
-  	autocmd!
-  	autocmd BufWritePost * FormatWrite
-	augroup END
-]])
+-- vim.cmd([[
+-- 	augroup FormatAutogroup
+--   	autocmd!
+--   	autocmd BufWritePost * FormatWrite
+-- 	augroup END
+-- ]])
 
-vim.api.nvim_set_keymap("n", "<C-l>", ":Format<cr>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<space>f", ":Format<CR>", { noremap = true })
