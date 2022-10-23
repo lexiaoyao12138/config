@@ -7,7 +7,8 @@ if not ok then
 end
 
 local colors = {
-	bg = "#202328",
+	-- bg = "#202328",
+	bg = "#ffffff",
 	fg = "#bbc2cf",
 	yellow = "#ECBE7B",
 	cyan = "#008080",
@@ -40,7 +41,8 @@ local config = {
 		-- Disable sections and component separators
 		component_separators = "",
 		section_separators = "",
-		theme = 'codedark'
+		-- theme = 'codedark'
+		theme = 'auto*'
 		-- theme = "gruvbox",
 	},
 	sections = {
@@ -124,7 +126,7 @@ ins_left({
 
 ins_left({
 	'filetype',
-	color = {fg = colors.violet, gui = "bold"}
+	color = { fg = colors.violet, gui = "bold" }
 })
 
 ins_left({
@@ -219,4 +221,9 @@ ins_right({
 })
 
 -- Now don't forget to initialize lualine
-line.setup(config)
+-- line.setup(config)
+require('lualine').setup {
+	options = {
+		theme = "auto"
+	}
+}
