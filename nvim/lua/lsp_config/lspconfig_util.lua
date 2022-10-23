@@ -32,7 +32,7 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 -- auto start language server
-local servers = { "sumneko_lua", "clangd", "tsserver", "cmake" } -- lsp-server
+local servers = { "sumneko_lua", --[[ "clangd", ]] "tsserver", "cmake" } -- lsp-server
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
@@ -40,3 +40,11 @@ for _, lsp in ipairs(servers) do
 		handlers = handlers,
 	})
 end
+
+local path = "/home/dong/.config/nvim/language/cpp.yaml"
+
+lspconfig.clangd.setup{
+	cmd = {"clangd", "--all-scopes-completion", "--header-insertion=iwyu",  "--function-arg-placeholders","--fallback-style="..path, },
+	on_attach = on_attach,
+	handlers = handlers,
+}
