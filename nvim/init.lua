@@ -146,6 +146,7 @@ require("nvim-tree_config")
 require("flod")
 require("windows_config")
 
+require("ill")
 -- keymap
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
