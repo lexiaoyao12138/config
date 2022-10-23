@@ -23,6 +23,8 @@ return require("packer").startup(function(use)
 	-- theme
 	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
+	use({ 'projekt0n/github-nvim-theme' })
+	use 'folke/tokyonight.nvim'
 
 	use({ "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' })
 	use({ 'nvim-treesitter/nvim-treesitter-context' }) -- 顶栏显示当前的函数
@@ -141,8 +143,8 @@ return require("packer").startup(function(use)
 		},
 	}
 
-	use 'sindrets/winshift.nvim'   -- 窗口移动
+	use 'sindrets/winshift.nvim' -- 窗口移动
 
-	use 'karb94/neoscroll.nvim'  -- 平滑滚动
+	use 'karb94/neoscroll.nvim' -- 平滑滚动
 
 end)
