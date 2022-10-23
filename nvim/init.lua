@@ -6,7 +6,7 @@ if ok then
 end
 
 vim.opt.number = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.hls = true
@@ -17,10 +17,6 @@ vim.opt.smartcase = true
 vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
--- set bookmarks icon
--- vim.cmd [[
--- 	let g:bookmark_sign="⛳"
--- ]]
 
 vim.api.nvim_command(":set nobackup")
 vim.api.nvim_command(":set nosplitright")
@@ -119,6 +115,7 @@ require("gittsigns")
 --todo
 require("todo")
 --formatter
+require("format")
 -- indent-blankline
 require("blankline")
 -- lualine
@@ -145,11 +142,11 @@ require("lsp_config")
 require("nvim-tree_config")
 require("flod")
 require("windows_config")
-
+--
 require("ill")
 -- keymap
 vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
-vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "b[", ":BufferLineCyclePrev<CR>", { noremap = true })
