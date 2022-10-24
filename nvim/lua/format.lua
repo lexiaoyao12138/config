@@ -29,21 +29,36 @@ formatter.setup({
 					exe = "clang-format-14",
 					args = {
 						-- "-style=file:"..language_path().."/cpp.yaml",
-						"-style=file:"..language_path.."/cpp.yaml",
+						"-style=file:" .. language_path .. "/cpp.yaml",
 						-- "-style=Microsoft",
 					},
 					stdin = true,
 				}
 			end,
+			},
+
+		lua = {
+			function()
+				return {
+					exe = "CodeFormat",
+					args = {
+						"format",
+						"-c "..language_path.."/lua.editorconfig",
+						"-f",
+						util.escape_path(util.get_current_buffer_file_path()),
+					},
+					stdin = true,
+				}
+			end
 		},
 
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
-		-- ["*"] = {
-		-- 	-- "formatter.filetypes.any" defines default configurations for any
-		-- 	-- filetype
-		-- 	require("formatter.filetypes.any").remove_trailing_whitespace,
-		-- },
+		["*"] = {
+			-- "formatter.filetypes.any" defines default configurations for any
+			-- filetype
+			require("formatter.filetypes.any").remove_trailing_whitespace,
+		},
 	},
 })
 
