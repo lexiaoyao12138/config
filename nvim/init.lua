@@ -2,7 +2,7 @@ local vim = vim
 -- init.lua
 local ok, _ = pcall(require, "notify")
 if ok then
-	vim.notify = require("notify")
+  vim.notify = require("notify")
 end
 
 vim.opt.number = true
@@ -24,12 +24,6 @@ vim.api.nvim_command(":set clipboard+=unnamedplus")
 vim.api.nvim_command(":set bg=dark")
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
@@ -41,68 +35,68 @@ vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", { noremap = true })
 require("plugins")
 
 require("mason").setup({ -- start mason config
-	ui = {
-		icons = {
-			package_installed = "",
-			package_pending = "",
-			package_uninstalled = "",
-		},
-	},
+  ui = {
+    icons = {
+      package_installed = "",
+      package_pending = "",
+      package_uninstalled = "",
+    },
+  },
 })
 
 require("nvim-autopairs").setup({
-	check_ts = true,
+  check_ts = true,
 })
 
 require("nvim-tree").setup({
-	view = {
-		side = "left",
-	},
-	renderer = {
-		indent_markers = {
-			enable = true,
-			icons = {
-				corner = "└",
-				edge = "│",
-				item = "│",
-				none = " ",
-			},
-		},
-	},
+  view = {
+    side = "left",
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└",
+        edge = "│",
+        item = "│",
+        none = " ",
+      },
+    },
+  },
 })
 
 vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]])
 vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
 local border = {
-	{ "┌", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "┐", "FloatBorder" },
-	{ "│", "FloatBorder" },
-	{ "┘", "FloatBorder" },
-	{ "─", "FloatBorder" },
-	{ "└", "FloatBorder" },
-	{ "│", "FloatBorder" },
+  { "┌", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "┐", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "┘", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "└", "FloatBorder" },
+  { "│", "FloatBorder" },
 }
 
 -- LSP settings (for overriding per client)
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-	opts = opts or {}
-	opts.border = opts.border or border
-	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 vim.diagnostic.config({
-	-- 关闭右侧的诊断信息
-	virtual_text = false,
+  -- 关闭右侧的诊断信息
+  virtual_text = false,
 })
 
 
@@ -167,7 +161,7 @@ vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
 -- debug
 vim.api.nvim_set_keymap("n", "BB",
-	":lua require'dap'.toggle_breakpoint()<cr>", { noremap = true })
+  ":lua require'dap'.toggle_breakpoint()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-v", "<cmd>lua require'dap'.step_over()<cr>", { noremap = true })
@@ -175,3 +169,63 @@ vim.api.nvim_set_keymap("n", "-u", "<cmd>lua require'dap'.step_out()<cr>", { nor
 
 require("renamer").setup {}
 vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+
+-- 添加头部信息
+vim.cmd [[
+autocmd BufNewFile *.[ch],*.hpp,*.cc,Makefile,*.mk,*.sh exec ":call SetTitle()"
+func SetComment()
+        call setline(1,"/*================================================================")
+        call append(line("."),   "*   Copyright (C) ".strftime("%Y")." IEucd Inc. All rights reserved.")
+        call append(line(".")+1, "*   ")
+        call append(line(".")+2, "*   文件名称：".expand("%:t"))
+        call append(line(".")+3, "*   创 建 者：lexiaoyao12138")
+        call append(line(".")+4, "*   创建日期：".strftime("%Y年%m月%d日"))
+        call append(line(".")+5, "*   描    述：")
+        call append(line(".")+6, "*")
+        call append(line(".")+7, "================================================================*/")
+        call append(line(".")+8, "")
+        call append(line(".")+9, "")
+endfunc
+func SetComment_sh()
+        call setline(3, "#================================================================")
+        call setline(4, "#   Copyright (C) ".strftime("%Y")." IEucd Inc. All rights reserved.")
+        call setline(5, "#   ")
+        call setline(6, "#   文件名称：".expand("%:t"))
+        call setline(7, "#   创 建 者：SongTL, songtianlun@comleader.com.cn")
+        call setline(8, "#   创建日期：".strftime("%Y年%m月%d日"))
+        call setline(9, "#   描    述：")
+        call setline(10, "#")
+        call setline(11, "#================================================================")
+        call setline(12, "")
+        call setline(13, "")
+endfunc
+func SetTitle()
+        if &filetype == 'make'
+                call setline(1,"")
+                call setline(2,"")
+                call SetComment_sh()
+
+        elseif &filetype == 'sh'
+                call setline(1,"#!/system/bin/sh")
+                call setline(2,"")
+                call SetComment_sh()
+
+        else
+             call SetComment()
+             if expand("%:e") == 'hpp'
+                  call append(line(".")+10, "#ifndef _".toupper(expand("%:t:r"))."_H")
+                  call append(line(".")+11, "#define _".toupper(expand("%:t:r"))."_H")
+                  call append(line(".")+12, "#ifdef __cplusplus")
+                  call append(line(".")+13, "#endif")
+                  call append(line(".")+14, "#endif //".toupper(expand("%:t:r"))."_H")
+
+             elseif expand("%:e") == 'h'
+                call append(line(".")+10, "#pragma once")
+             elseif &filetype == 'c'
+                call append(line(".")+10,"#include \"".expand("%:t:r").".h\"")
+             elseif &filetype == 'cpp'
+                call append(line(".")+10, "#include \"".expand("%:t:r").".h\"")
+             endif
+        endif
+endfun
+]]
