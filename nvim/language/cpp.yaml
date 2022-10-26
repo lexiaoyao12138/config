@@ -4,9 +4,10 @@ BasedOnStyle:  GNU
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossEmptyLines
-AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveAssignments: None
 AlignConsecutiveBitFields: Consecutive
-AlignConsecutiveDeclarations: false
+AlignConsecutiveDeclarations: Consecutive  # 已变量名对齐
+
 AlignEscapedNewlines: Right
 AlignOperands:   Align
 AlignTrailingComments: true
