@@ -44,7 +44,7 @@ end
 local path = "/home/dong/.config/nvim/language/cpp.yaml"
 
 lspconfig.clangd.setup{
-	cmd = {"clangd", "--all-scopes-completion", "--header-insertion=iwyu",  "--function-arg-placeholders","--fallback-style="..path, },
+	cmd = {"clangd", "--all-scopes-completion", "--header-insertion=iwyu",  "--function-arg-placeholders", },
 	on_attach = on_attach,
 	handlers = handlers,
 }
