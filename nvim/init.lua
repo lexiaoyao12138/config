@@ -109,8 +109,6 @@ require("todo")
 require("format")
 -- indent-blankline
 require("blankline")
--- lualine
-require("line")
 -- nvimGDB
 require("nvimGDB")
 --symbols-outline
@@ -129,6 +127,9 @@ require("telescope_config")
 require("snippet")
 require("lsp_cmp")
 require("lsp_config")
+-- lualine
+require("line")
+-- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 -- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
 require("nvim-tree_config")
 require("flod")
