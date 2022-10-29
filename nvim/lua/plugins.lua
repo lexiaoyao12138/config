@@ -11,9 +11,11 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/nvim-cmp", tag = "v0.0.1" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "onsails/lspkind.nvim" })
+	use{"glepnir/lspsaga.nvim", branch = "main"}
 
 	use({ "ray-x/lsp_signature.nvim" })
 	use("p00f/clangd_extensions.nvim")
+	use "SmiteshP/nvim-navic"
 
 	-- use {
 	-- 	'kosayoda/nvim-lightbulb',
@@ -108,11 +110,11 @@ return require("packer").startup(function(use)
 	use("RRethy/vim-illuminate")
 
 	--rename
-	use {
-		'filipdutescu/renamer.nvim',
-		branch = 'master',
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+	-- use {
+	-- 	'filipdutescu/renamer.nvim',
+	-- 	branch = 'master',
+	-- 	requires = { { 'nvim-lua/plenary.nvim' } }
+	-- }
 
 	-- use "smjonas/inc-rename.nvim"
 

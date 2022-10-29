@@ -28,6 +28,7 @@ vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize +1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Esc>", "<Esc>", { noremap = true })
 -- 右侧的函数列表
 vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-s>", ":SymbolsOutline<CR>", { noremap = true })
@@ -45,7 +46,7 @@ require("mason").setup({ -- start mason config
 })
 
 require("nvim-autopairs").setup({
-  check_ts = true,
+check_ts = true,
 })
 
 require("nvim-tree").setup({
@@ -127,6 +128,7 @@ require("telescope_config")
 require("snippet")
 require("lsp_cmp")
 require("lsp_config")
+require("lsp_age")
 -- lualine
 require("line")
 -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
@@ -165,8 +167,8 @@ vim.api.nvim_set_keymap("n", "-s", "<cmd>lua require'dap'.step_into()<cr>", { no
 vim.api.nvim_set_keymap("n", "-v", "<cmd>lua require'dap'.step_over()<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-u", "<cmd>lua require'dap'.step_out()<cr>", { noremap = true })
 
-require("renamer").setup {}
-vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+-- require("renamer").setup {}
+-- vim.api.nvim_set_keymap('n', '<space>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 
 -- 添加头部信息
 vim.cmd [[
@@ -213,9 +215,8 @@ func SetTitle()
              if expand("%:e") == 'hpp'
                   call append(line(".")+10, "#ifndef _".toupper(expand("%:t:r"))."_H")
                   call append(line(".")+11, "#define _".toupper(expand("%:t:r"))."_H")
-                  call append(line(".")+12, "#ifdef __cplusplus")
-                  call append(line(".")+13, "#endif")
-                  call append(line(".")+14, "#endif //".toupper(expand("%:t:r"))."_H")
+                  call append(line(".")+12, "#endif")
+                  call append(line(".")+13, "#endif //".toupper(expand("%:t:r"))."_H")
 
              elseif expand("%:e") == 'h'
                 call append(line(".")+10, "#pragma once")
