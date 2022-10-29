@@ -6,6 +6,8 @@ if not ok then
 end
 
 saga.init_lsp_saga({
+	-- "single" | "double" | "rounded" | "bold" | "plus"
+	border_style = "rounded",
 	code_action_lightbulb = {
 		enable = true,
 		enable_in_insert = true,
@@ -15,6 +17,11 @@ saga.init_lsp_saga({
 		sign_priority = 20,
 		virtual_text = false,
 	},
+	show_outline = {
+		win_with = 'db_ui',
+		win_width = 40,
+	},
+	diagnostic_header = { " ", " ", " ", "ﴞ " },
 })
 
 -- Lsp finder find the symbol definition implement reference
@@ -25,3 +32,6 @@ keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 -- Code action
 keymap({ "n", "v" }, "<space>ca", ":Lspsaga code_action<CR>", { silent = true })
+
+--rename
+keymap("n", "<space>rn", ":Lspsaga rename<CR>", {silent = true})
