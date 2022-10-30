@@ -149,4 +149,7 @@ return require("packer").startup(function(use)
 
 	use 'karb94/neoscroll.nvim' -- 平滑滚动
 
+	use 'rmagatti/auto-session'
+	use 'rmagatti/session-lens'
+
 end)

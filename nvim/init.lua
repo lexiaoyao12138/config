@@ -1,8 +1,38 @@
 local vim = vim
+
+vim.opt.termguicolors = true
+require("notify").setup{
+	timeout = 1000,
+  background_colour = "#000000",
+}
+vim.cmd [[
+highlight NotifyERRORBorder guifg=#8A1F1F
+highlight NotifyWARNBorder guifg=#79491D
+highlight NotifyINFOBorder guifg=#4F6752
+highlight NotifyDEBUGBorder guifg=#8B8B8B
+highlight NotifyTRACEBorder guifg=#4F3552
+highlight NotifyERRORIcon guifg=#F70067
+highlight NotifyWARNIcon guifg=#F79000
+highlight NotifyINFOIcon guifg=#A9FF68
+highlight NotifyDEBUGIcon guifg=#8B8B8B
+highlight NotifyTRACEIcon guifg=#D484FF
+highlight NotifyERRORTitle  guifg=#F70067
+highlight NotifyWARNTitle guifg=#F79000
+highlight NotifyINFOTitle guifg=#A9FF68
+highlight NotifyDEBUGTitle  guifg=#8B8B8B
+highlight NotifyTRACETitle  guifg=#D484FF
+highlight link NotifyERRORBody Normal
+highlight link NotifyWARNBody Normal
+highlight link NotifyINFOBody Normal
+highlight link NotifyDEBUGBody Normal
+highlight link NotifyTRACEBody Normal
+]]
+
 -- init.lua
 local ok, _ = pcall(require, "notify")
 if ok then
   vim.notify = require("notify")
+
 end
 
 vim.opt.number = true
@@ -46,7 +76,7 @@ require("mason").setup({ -- start mason config
 })
 
 require("nvim-autopairs").setup({
-check_ts = true,
+  check_ts = true,
 })
 
 require("nvim-tree").setup({
@@ -139,11 +169,12 @@ require("windows_config")
 --
 require("ill")
 -- keymap
-vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
+-- vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
+vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
 -- vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "b[", ":BufferLineCyclePrev<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
 
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
@@ -155,7 +186,7 @@ vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })
 
 
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
+-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
 
