@@ -19,7 +19,14 @@ line.setup {
       statusline = {},
       winbar = {},
     },
-    ignore_focus = {},
+    ignore_focus = {
+			"NvimTree",
+			"quickfix",
+			"toggleterm",
+			"Outline",
+			"lspsagaoutline",
+			"Trouble",
+		},
     always_divide_middle = true,
     globalstatus = false,
     refresh = {
