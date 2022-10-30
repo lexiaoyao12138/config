@@ -35,3 +35,4 @@ keymap({ "n", "v" }, "<space>ca", ":Lspsaga code_action<CR>", { silent = true })
 
 --rename
 keymap("n", "<space>rn", ":Lspsaga rename<CR>", {silent = true})
+keymap("n", "<c-k>", ":Lspsaga hover_doc<CR>", {silent = true})
