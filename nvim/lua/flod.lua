@@ -2,7 +2,7 @@ local vim = vim
 
 local ok, flod = pcall(require, "ufo")
 if not ok then
-	vim.notify("luasnip is not install!")
+	vim.notify("ufo is not install!")
 	return
 end
 
