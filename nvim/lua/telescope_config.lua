@@ -52,5 +52,7 @@ t.load_extension('vim_bookmarks')
 -- 剪切板
 t.load_extension('neoclip')
 
+t.load_extension("session-lens")
+
 -- Add a mapping
 vim.keymap.set("n", "Cd", t.extensions.zoxide.list)
