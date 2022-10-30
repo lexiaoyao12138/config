@@ -1,7 +1,7 @@
 require("lspkind").init({
 	-- default: symbol
 	-- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-	mode = "symbol_text",
+	mode = "text_symbol",
 
 	-- default symbol map
 	-- can be either 'default' (requires nerd-fonts font) or

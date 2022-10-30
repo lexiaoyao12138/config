@@ -1,6 +1,7 @@
 local vim = vim
 
 local lspconfig = require("lspconfig")
+local navic = require("nvim-navic")
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
@@ -8,6 +9,7 @@ local handlers = {
 }
 
 local on_attach = function(client, bufnr)
+	navic.attach(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -47,4 +49,5 @@ lspconfig.clangd.setup{
 	cmd = {"clangd", "--all-scopes-completion", "--header-insertion=iwyu",  "--function-arg-placeholders", },
 	on_attach = on_attach,
 	handlers = handlers,
+	capabilities = capabilities,
 }
