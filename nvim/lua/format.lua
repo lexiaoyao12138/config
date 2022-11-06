@@ -26,7 +26,7 @@ formatter.setup({
 		cpp = {
 			function()
 				return {
-					exe = "clang-format-14",
+					exe = "clang-format",
 					args = {
 						-- "-style=file:"..language_path().."/cpp.yaml",
 						"-style=file:" .. language_path .. "/cpp.yaml",
