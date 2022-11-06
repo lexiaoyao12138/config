@@ -154,4 +154,6 @@ return require("packer").startup(function(use)
 
 	use 'kdheepak/lazygit.nvim'
 
+	use {'mg979/vim-visual-multi', branch = 'master'}
+
 end)
