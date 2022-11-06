@@ -8,6 +8,7 @@ fi
 
 export http_proxy=http://127.0.0.1:7890
 export https_proxy=$https_proxy
+export all_proxy=$https_proxy
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
