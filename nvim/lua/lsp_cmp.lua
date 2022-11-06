@@ -63,8 +63,8 @@ cmp.setup({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- 功能弃用 https://github.com/hrsh7th/cmp-nvim-lsp/issues/38
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
--- capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require'lspconfig'.clangd.setup {
 	capabilities = capabilities,
