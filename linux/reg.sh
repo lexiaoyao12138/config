@@ -7,8 +7,16 @@ AppList=(git curl wget aria2 screenfetch sl egrep ripgrep gcc g++ make cmake unz
 echo "下载常用软件..."
 for app in ${AppList[@]}
 do
-	sudo apt install ${app}
+	if ! type ${app} >/dev/null; then
+    echo "${app} is not installed!"
+		$(sudo pacman -S ${app})
+  else
+    echo "${app} is already installed."
+	fi
 done
+
+#packnvim
+
 
 # 安装oh-my-zsh
 echo "安装oh-my-zsh"
