@@ -36,7 +36,7 @@ navic.setup{
         Operator      = " ",
         TypeParameter = " ",
     },
-    highlight = true,
+    highlight = false,
     separator = "  ",
     depth_limit = 0,
     depth_limit_indicator = "..",
