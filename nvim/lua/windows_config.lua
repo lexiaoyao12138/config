@@ -7,13 +7,13 @@ local config = function()
 end
 
 -- 动态调整窗口大小
-require('windows').setup({
-	config = config,
-	ignore = {
-      buftype = { "quickfix",  },
-      filetype = { "NvimTree", "Outline" }
-   },
-})
+-- require('windows').setup({
+-- 	config = config,
+-- 	ignore = {
+--       buftype = { "quickfix",  },
+--       filetype = { "NvimTree", "Outline" }
+--    },
+-- })
 
 -- 移动窗口
 require("winshift").setup({
