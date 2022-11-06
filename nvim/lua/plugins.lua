@@ -152,4 +152,6 @@ return require("packer").startup(function(use)
 	use 'rmagatti/auto-session'
 	use 'rmagatti/session-lens'
 
+	use 'kdheepak/lazygit.nvim'
+
 end)

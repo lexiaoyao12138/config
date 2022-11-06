@@ -54,5 +54,7 @@ t.load_extension('neoclip')
 
 t.load_extension("session-lens")
 
+t.load_extension("lazygit")
+
 -- Add a mapping
 vim.keymap.set("n", "Cd", t.extensions.zoxide.list)
