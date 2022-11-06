@@ -16,12 +16,6 @@ return require("packer").startup(function(use)
 	use({ "ray-x/lsp_signature.nvim" })
 	use("p00f/clangd_extensions.nvim")
 	use "SmiteshP/nvim-navic"
-
-	-- use {
-	-- 	'kosayoda/nvim-lightbulb',
-	-- 	requires = 'antoinemadec/FixCursorHold.nvim',
-	-- }
-
 	-- theme
 	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
