@@ -30,7 +30,7 @@ require("nvim-treesitter.configs").setup({
 
 require("nvim-surround").setup({})
 
-require('hlargs').setup()
+-- require('hlargs').setup()
 
 require("twilight").setup()
 

@@ -29,7 +29,7 @@ return require("packer").startup(function(use)
 
 	use({ "kylechui/nvim-surround" })
 
-	use('m-demare/hlargs.nvim')
+	-- use('m-demare/hlargs.nvim')
 
 	use("folke/twilight.nvim")
 
