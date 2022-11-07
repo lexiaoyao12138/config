@@ -58,6 +58,9 @@ fi
 alias ls="lsd"
 alias v="nvim"
 alias lg="lazygit"
+alias n="nnn -de"
+
+bindkey -v
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/dong/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -112,3 +115,7 @@ export NVM_DIR="$HOME/.nvm"
 # CodeFormat
 export LUA_FORMAT=$HOME/Document/Format
 export PATH=$PATH:$LUA_FORMAT/bin
+
+# nnn
+export NNN_OPENER=nuke
+export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'

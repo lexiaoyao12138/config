@@ -15,7 +15,9 @@ do
 	fi
 done
 
-#packnvim
+#packernvim
+#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ # ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 
 # 安装oh-my-zsh
@@ -29,6 +31,18 @@ $(url)
 # 链接zsh配置文件
 echo "链接zsh配置文件"
 ln -sf $path/zshrc $HOME/.zshrc
+
+# zsh-syntax
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+# fzf-tab
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+
+# lsb
+# https://github.com/Peltoche/lsd/releases
+
+# zxoide
 
 # omz plugs
 # syntax 高亮
