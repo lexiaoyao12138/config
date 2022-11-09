@@ -103,15 +103,6 @@ return require("packer").startup(function(use)
 
 	use("RRethy/vim-illuminate")
 
-	--rename
-	-- use {
-	-- 	'filipdutescu/renamer.nvim',
-	-- 	branch = 'master',
-	-- 	requires = { { 'nvim-lua/plenary.nvim' } }
-	-- }
-
-	-- use "smjonas/inc-rename.nvim"
-
 	--save
 	use("Pocco81/auto-save.nvim")
 
