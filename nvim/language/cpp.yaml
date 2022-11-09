@@ -2,6 +2,7 @@
 Language:        Cpp
 BasedOnStyle:  GNU
 AccessModifierOffset: -2
+AlignArrayOfStructures: Right
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossComments
 AlignConsecutiveAssignments: None
