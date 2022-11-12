@@ -29,7 +29,7 @@ formatter.setup({
 					exe = "clang-format",
 					args = {
 						-- "-style=file:"..language_path().."/cpp.yaml",
-						"-style=file:" .. language_path .. "/cpp.yaml",
+						"-style=file:" .. language_path .. "cpp.yaml",
 						-- "-style=Microsoft",
 					},
 					stdin = true,
