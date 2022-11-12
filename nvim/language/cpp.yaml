@@ -5,8 +5,7 @@ AccessModifierOffset: -2
 AlignArrayOfStructures: Right
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossComments
-AlignConsecutiveAssignments: None
-AlignConsecutiveBitFields: AcrossComments
+# AlignConsecutiveAssignments: None
 AlignConsecutiveDeclarations: AcrossComments  # 已变量名对齐
 
 AlignEscapedNewlines: Right
@@ -92,7 +91,7 @@ IndentPPDirectives: AfterHash
 IndentExternBlock: AfterExternBlock
 IndentWidth:     2
 IndentWrappedFunctionNames: false
-InsertTrailingCommas: None
+# InsertTrailingCommas: Wrapped
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: true
@@ -126,7 +125,7 @@ SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
 SpaceBeforeRangeBasedForLoopColon: true
-SpaceInEmptyBlock: false
+SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles:  false
