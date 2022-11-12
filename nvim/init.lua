@@ -26,6 +26,7 @@ highlight link NotifyWARNBody Normal
 highlight link NotifyINFOBody Normal
 highlight link NotifyDEBUGBody Normal
 highlight link NotifyTRACEBody Normal
+hi FoldColumn guibg=#31312D guifg=#526A83
 ]]
 
 -- init.lua
@@ -58,6 +59,8 @@ vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize +1<CR>", { noremap = true })
+vim.keymap.set("n", "<c-]>", ":vertical resize -3<CR>")
+vim.keymap.set("n", "<c-m>", ":vertical resize +3<CR>")
 vim.api.nvim_set_keymap("n", "<Esc>", "<Esc>", { noremap = true })
 -- 右侧的函数列表
 vim.api.nvim_set_keymap("n", "<c-l>", ":LSoutlineToggle<CR>", { noremap = true })
@@ -168,6 +171,7 @@ require("flod")
 require("windows_config")
 --
 require("ill")
+require("hop_config")
 -- keymap
 -- vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
