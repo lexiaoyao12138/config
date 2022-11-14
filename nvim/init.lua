@@ -57,8 +57,6 @@ vim.api.nvim_command(":set bg=dark")
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Up>", ":resize -1<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<c-Down>", ":resize +1<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<c-]>", ":vertical resize -1<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<c-[>", ":vertical resize +1<CR>", { noremap = true })
 vim.keymap.set("n", "<c-]>", ":vertical resize -3<CR>")
 vim.keymap.set("n", "<c-m>", ":vertical resize +3<CR>")
 vim.api.nvim_set_keymap("n", "<Esc>", "<Esc>", { noremap = true })
@@ -172,6 +170,9 @@ require("windows_config")
 --
 require("ill")
 require("hop_config")
+
+require("session")
+-- require("golang")
 -- keymap
 -- vim.keymap.set("n", "gl", ":lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
