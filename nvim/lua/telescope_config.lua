@@ -1,3 +1,4 @@
+local vim = vim
 -- telescop map
 vim.keymap.set("n", "ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ winblend = 10 }))<cr>")
 vim.keymap.set("n", "fm", ":Telescope vim_bookmarks theme=dropdown prompt_prefix=<cr>")
@@ -21,8 +22,11 @@ t.setup({
 		},
 	},
 	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown { }
+		},
 		zoxide = {
-			theme = "ivy",
+			themes = "ivy",
 			prompt_title = "[ Walking on the shoulders of TJ ]",
 			mappings = {
 				default = {
@@ -52,9 +56,9 @@ t.load_extension('vim_bookmarks')
 -- 剪切板
 t.load_extension('neoclip')
 
-t.load_extension("session-lens")
-
 t.load_extension("lazygit")
+
+t.load_extension("ui-select")
 
 -- Add a mapping
 vim.keymap.set("n", "Cd", t.extensions.zoxide.list)
