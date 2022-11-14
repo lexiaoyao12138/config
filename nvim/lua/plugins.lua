@@ -58,6 +58,7 @@ return require("packer").startup(function(use)
 	use('tom-anders/telescope-vim-bookmarks.nvim')
 	use("AckslD/nvim-neoclip.lua") -- 剪切板管理
 	use('nvim-telescope/telescope-symbols.nvim') -- symbols
+	use {'nvim-telescope/telescope-ui-select.nvim' }
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
