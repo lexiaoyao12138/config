@@ -142,4 +142,5 @@ return require("packer").startup(function(use)
 	use {'mg979/vim-visual-multi', branch = 'master'}
 
 	use 'phaazon/hop.nvim'
+	use 'Shatur/neovim-session-manager'
 end)
