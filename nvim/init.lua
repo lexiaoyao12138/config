@@ -27,6 +27,7 @@ highlight link NotifyINFOBody Normal
 highlight link NotifyDEBUGBody Normal
 highlight link NotifyTRACEBody Normal
 hi FoldColumn guibg=#31312D guifg=#526A83
+highlight BookmarkSign guifg=#e9c911
 ]]
 
 -- init.lua
