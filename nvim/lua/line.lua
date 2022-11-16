@@ -65,7 +65,7 @@ line.setup {
 			"Trouble",
 		},
     always_divide_middle = true,
-    globalstatus = true,
+    globalstatus = true,    -- 设置为true, 分屏时lualine为满长度
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -83,20 +83,26 @@ line.setup {
 				'diff',
 				icons_enabled = true,
 				colored = true,
-				symbols = {added = ' ', modified = ' ', removed = ' '}
+				symbols = {added = ' ', modified = ' ', removed = ' '},
+				diff_color = {
+					added 		= 	{ fg = '#78BC61' },
+					modified 	= 	{ fg = '#9BCDF2' },
+					removed 	= 	{ fg = '#E07B5E' }
+				}
 			},
 			{
 				'diagnostics',
 				symbols = { error = ' ', warn = ' ', info= ' ', hint = ' ' }
 			}
 		},
-    lualine_c = { { navic.get_location, cond = navic.is_available } },
+    lualine_c = { { navic.get_location, cond = navic.is_available  } },
     lualine_x = { 'encoding',
 		{
 			'fileformat',
 			highlight = true,
 			colored = true,
-			symbols = { unix = '', dos = '', mac = '' }
+			symbols = { unix = '', dos = '', mac = '' },
+			color = { fg = '#28B6FF' }
 		},
 		{
 			'filetype',
