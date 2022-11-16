@@ -6,28 +6,11 @@ require("notify").setup{
   background_colour = "#000000",
 }
 vim.cmd [[
-highlight NotifyERRORBorder guifg=#8A1F1F
-highlight NotifyWARNBorder guifg=#79491D
-highlight NotifyINFOBorder guifg=#4F6752
-highlight NotifyDEBUGBorder guifg=#8B8B8B
-highlight NotifyTRACEBorder guifg=#4F3552
-highlight NotifyERRORIcon guifg=#F70067
-highlight NotifyWARNIcon guifg=#F79000
-highlight NotifyINFOIcon guifg=#A9FF68
-highlight NotifyDEBUGIcon guifg=#8B8B8B
-highlight NotifyTRACEIcon guifg=#D484FF
-highlight NotifyERRORTitle  guifg=#F70067
-highlight NotifyWARNTitle guifg=#F79000
-highlight NotifyINFOTitle guifg=#A9FF68
-highlight NotifyDEBUGTitle  guifg=#8B8B8B
-highlight NotifyTRACETitle  guifg=#D484FF
-highlight link NotifyERRORBody Normal
-highlight link NotifyWARNBody Normal
-highlight link NotifyINFOBody Normal
-highlight link NotifyDEBUGBody Normal
-highlight link NotifyTRACEBody Normal
-hi FoldColumn guibg=#31312D guifg=#526A83
-highlight BookmarkSign guifg=#e9c911
+	hi FoldColumn guibg=#31312D guifg=#526A83
+	hi BookmarkSign guifg=#e9c911
+	"highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
+	"highlight BookmarkLine ctermbg=whatever ctermfg=whatever
+	"highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
 ]]
 
 -- init.lua
@@ -95,7 +78,14 @@ require("nvim-tree").setup({
         none = " ",
       },
     },
-  },
+		icons = {
+			glyphs = {
+				git = {
+					untracked = "ﱐ"
+				},
+			},
+		}
+	},
 })
 
 local border = {
@@ -118,7 +108,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -252,8 +242,7 @@ func SetTitle()
              if expand("%:e") == 'hpp'
                   call append(line(".")+10, "#ifndef _".toupper(expand("%:t:r"))."_H")
                   call append(line(".")+11, "#define _".toupper(expand("%:t:r"))."_H")
-                  call append(line(".")+12, "#endif")
-                  call append(line(".")+13, "#endif //".toupper(expand("%:t:r"))."_H")
+                  call append(line(".")+12 buf, "#endif //".toupper(expand("%:t:r"))."_H")
 
              elseif expand("%:e") == 'h'
                 call append(line(".")+10, "#pragma once")
