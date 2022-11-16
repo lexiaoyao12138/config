@@ -123,7 +123,8 @@ vim.diagnostic.config({
 require("colorizer").setup()
 require("toggleterm_config")
 -- 顶部状态栏
-require("bufferline_config")
+-- require("bufferline_config")
+require("tabline_config")
 -- gittsigns
 require("gittsigns")
 --todo
@@ -169,8 +170,11 @@ require("session")
 vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
 -- vim.keymap.set("n", "<space>f", vim.lsp.buf.format)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
-vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
+vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
+vim.keymap.set('n', '[b', ':tabNext<CR>')
+vim.cmd[[ :nnoremap ;q :Bdelete<CR> ]]
 
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })

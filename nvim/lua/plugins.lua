@@ -38,6 +38,8 @@ return require("packer").startup(function(use)
 	-- use({ "p00f/nvim-ts-rainbow" })
 
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	use 'kdheepak/tabline.nvim'
+	use 'moll/vim-bbye'
 
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -140,5 +142,12 @@ return require("packer").startup(function(use)
 	use {'mg979/vim-visual-multi', branch = 'master'}
 
 	use 'phaazon/hop.nvim'
+
+	use 'ray-x/go.nvim'
+	use 'ray-x/guihua.lua'
+
+	use 'octol/vim-cpp-enhanced-highlight'  -- cpp 语法高亮
+
 	use 'Shatur/neovim-session-manager'
+
 end)
