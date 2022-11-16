@@ -18,6 +18,7 @@ end, {remap=true})
 
 hop.setup { keys = 'etovxqpdygfblzhckisuran' }
 
-vim.keymap.set("n", "hc", "HopChar1<CR>")
-vim.keymap.set("n", "hl", "HopLineStart<CR>")
-vim.keymap.set("n", "ha", "HopAnywhere<CR>")
+vim.keymap.set("n", "-c", ":HopChar1<CR>")
+vim.keymap.set("n", "-l", ":HopLineStart<CR>")
+vim.keymap.set("n", "-a", ":HopAnywhere<CR>")
+vim.keymap.set("n", "fw", ":HopWord<CR>")
