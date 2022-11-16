@@ -1,3 +1,5 @@
+local vim = vim
+
 local ok, dap = pcall(require, "dap")
 if not ok then
 	vim.notify("dap is not install!")
@@ -36,8 +38,8 @@ dap.configurations.cpp = {
   },
 }
 
-vim.fn.sign_define('DapBreakpoint', {text='', texthl='LspDiagnosticsSignError', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='', texthl='LspDiagnosticsSignInformation', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text='', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DapStopped', {text='', texthl='DiagnosticsSignInfo', linehl='', numhl=''})
 vim.fn.sign_define('DapLogPoint', {text='', texthl='', linehl='', numhl=''})
 
 dap.configurations.c = dap.configurations.cpp
