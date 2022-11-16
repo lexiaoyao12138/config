@@ -36,7 +36,7 @@ navic.setup{
         Operator      = " ",
         TypeParameter = " ",
     },
-    highlight = false,
+    highlight = true,
     separator = "  ",
     depth_limit = 0,
     depth_limit_indicator = "..",
@@ -46,6 +46,8 @@ navic.setup{
 
 line.setup {
   options = {
+		highlight = true,
+		colored = true,
     icons_enabled = true,
     theme = 'auto',
     component_separators = { left = '', right = '' },
@@ -63,7 +65,7 @@ line.setup {
 			"Trouble",
 		},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -72,11 +74,37 @@ line.setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_b = {
+			{
+				'branch',
+				icon = ''
+			},
+			{
+				'diff',
+				icons_enabled = true,
+				colored = true,
+				symbols = {added = ' ', modified = ' ', removed = ' '}
+			},
+			{
+				'diagnostics',
+				symbols = { error = ' ', warn = ' ', info= ' ', hint = ' ' }
+			}
+		},
     lualine_c = { { navic.get_location, cond = navic.is_available } },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_x = { 'encoding',
+		{
+			'fileformat',
+			highlight = true,
+			colored = true,
+			symbols = { unix = '', dos = '', mac = '' }
+		},
+		{
+			'filetype',
+			icon_only = true
+		}
+	},
     lualine_y = { 'progress' },
-    -- lualine_z = {'location'}
+
     lualine_z = {
       function()
         local msg = "No Active Lsp"
@@ -97,7 +125,7 @@ line.setup {
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {},
+    lualine_b = { 'navic' },
     lualine_c = { 'filename' },
     lualine_x = { 'location' },
     lualine_y = {},
@@ -106,5 +134,7 @@ line.setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
+  extensions = {
+		"quickfix",
+	}
 }
