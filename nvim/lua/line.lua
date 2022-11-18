@@ -105,8 +105,17 @@ line.setup {
 			color = { fg = '#28B6FF' }
 		},
 		{
-			'filetype',
-			icon_only = true
+			'filename',
+			file_status = true,
+			shorting_target = 50,
+			path = 0,
+			colored = true,
+			symbols = {
+        modified = 'ﯽ ',      -- Text to show when the file is modified.
+        readonly = '牢 ',      -- Text to show when the file is non-modifiable or readonly.
+        unnamed = '[No Name]', -- Text to show for unnamed buffers.
+        newfile = '[New]',     -- Text to show for new created file before first writting
+      }
 		}
 	},
     lualine_y = { 'progress' },

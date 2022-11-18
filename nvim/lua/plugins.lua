@@ -142,6 +142,7 @@ return require("packer").startup(function(use)
 	use {'mg979/vim-visual-multi', branch = 'master'}
 
 	use 'phaazon/hop.nvim'
+	use 'ggandor/leap.nvim'
 
 	use 'ray-x/go.nvim'
 	use 'ray-x/guihua.lua'
