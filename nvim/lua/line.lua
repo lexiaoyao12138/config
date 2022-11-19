@@ -111,7 +111,7 @@ line.setup {
 			path = 0,
 			colored = true,
 			symbols = {
-        modified = 'ﯽ ',      -- Text to show when the file is modified.
+        modified = '➕',      -- Text to show when the file is modified.
         readonly = '牢 ',      -- Text to show when the file is non-modifiable or readonly.
         unnamed = '[No Name]', -- Text to show for unnamed buffers.
         newfile = '[New]',     -- Text to show for new created file before first writting
