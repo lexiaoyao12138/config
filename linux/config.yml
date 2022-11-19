@@ -1,0 +1,16 @@
+gui:
+  sidePanelWidth: 0.22222
+  BreakInheritanceList: vertical
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - blue
+    selectedLineBgColor:
+      - blue
+    showIcons: true
+os:
+  openCommand: 'open {{filename}}'
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
