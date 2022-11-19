@@ -6,8 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export http_proxy=socks5://127.0.0.1:7891
-export https_proxy=$https_proxy
+export http_proxy=socks5://192.168.3.254:7891
+export https_proxy=$http_proxy
 # export ALL_PROXY=socks5://127.0.0.1:7891
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
