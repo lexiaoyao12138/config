@@ -1,5 +1,5 @@
 local ok, todo = pcall(require, "todo-comments")
-if not ok then 
+if not ok then
 	vim.notify("todo-comments is not install!!")
 	return
 end
@@ -19,6 +19,7 @@ todo.setup({
 		WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
 		PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 		NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+		CLASS = {icon = " ", clolr = "warning" },
 	},
 	merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 	-- highlighting of the line containing the todo comment
@@ -27,7 +28,7 @@ todo.setup({
 	-- * after: highlights after the keyword (todo text)
 	highlight = {
 		before = "", -- "fg" or "bg" or empty
-		keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
+		keyword = "bg", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
 		after = "", -- "fg" or "bg" or empty
 		pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
 		comments_only = true, -- uses treesitter to match keywords in comments only
@@ -40,7 +41,7 @@ todo.setup({
 		error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
 		warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
 		info = { "DiagnosticInfo", "#2563EB" },
-		hint = { "DiagnosticHint", "#10B981" },
+		hint = { "DiagnosticHint", "#D5B322" },
 		default = { "Identifier", "#7C3AED" },
 	},
 	search = {
