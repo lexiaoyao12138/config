@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql:
+    hostname: mysql
+    image: mysql:5.7.26
+    # network_mode: "host" 
+    container_name: mysql 
+    restart: always 
+    command: mysqld
+    ports:
+      - 3306:3306
+    environment:
+      - TZ=Asia/Shanghai 
+      - MYSQL_ROOT_PASSWORD=root 
+    volumes:
+       - /etc/localtime:/etc/localtime:ro 
+       - ./data:/var/lib/mysql/data 
+       - ./conf/my.cnf:/etc/mysql/my.cnf
+       - ./logs:/var/log/mysql
