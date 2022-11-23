@@ -71,7 +71,7 @@ require("nvim-tree").setup({
 		icons = {
 			glyphs = {
 				git = {
-					untracked = "ﱐ"
+					untracked = ""
 				},
 			},
 		}
@@ -114,7 +114,7 @@ require("colorizer").setup()
 require("toggleterm_config")
 -- 顶部状态栏
 -- require("bufferline_config")
-require("tabline_config")
+-- require("tabline_config")
 -- gittsigns
 require("gittsigns")
 --todo

@@ -17,10 +17,14 @@ vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 -- vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
-vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
+-- vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
+vim.keymap.set('n', 'g1', ':LualineBuffersJump 1<CR>')
+vim.keymap.set('n', 'g2', ':LualineBuffersJump 2<CR>')
+vim.keymap.set('n', 'g3', ':LualineBuffersJump 3<CR>')
 vim.keymap.set('n', '[b', ':tabNext<CR>')
 vim.cmd[[ :nnoremap ;q :Bdelete<CR> ]]
 
+vim.keymap.set('n', 'lg', ':LazyGit<CR>')
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })
@@ -88,7 +92,7 @@ func SetTitle()
              if expand("%:e") == 'hpp'
                   call append(line(".")+10, "#ifndef _".toupper(expand("%:t:r"))."_H")
                   call append(line(".")+11, "#define _".toupper(expand("%:t:r"))."_H")
-                  call append(line(".")+12 buf, "#endif //".toupper(expand("%:t:r"))."_H")
+                  call append(line(".")+12, "#endif //".toupper(expand("%:t:r"))."_H")
 
              elseif expand("%:e") == 'h'
                 call append(line(".")+10, "#pragma once")
