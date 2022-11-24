@@ -2,7 +2,7 @@ local vim = vim
 
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all"
-	ensure_installed = { "c", "lua", "make", "go", "cpp", "html", "css", "javascript", "vim", "cmake" },
+	ensure_installed = { "c", "lua", "cpp" },
 
 	sync_install = true,
 

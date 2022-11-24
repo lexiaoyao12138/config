@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "onsails/lspkind.nvim" })
 	use{"glepnir/lspsaga.nvim", branch = "main"}
+	use {'ms-jpq/coq_nvim', branch = 'coq'}
 
 	use({ "ray-x/lsp_signature.nvim" })
 	use("p00f/clangd_extensions.nvim")
@@ -37,7 +38,6 @@ return require("packer").startup(function(use)
 
 	-- use({ "p00f/nvim-ts-rainbow" })
 
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	use 'kdheepak/tabline.nvim'
 	use 'moll/vim-bbye'
 
@@ -60,6 +60,7 @@ return require("packer").startup(function(use)
 	use('tom-anders/telescope-vim-bookmarks.nvim')
 	use("AckslD/nvim-neoclip.lua") -- 剪切板管理
 	use('nvim-telescope/telescope-symbols.nvim') -- symbols
+	use 'stevearc/aerial.nvim'
 	use {'nvim-telescope/telescope-ui-select.nvim' }
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
@@ -97,7 +98,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"sakhnik/nvim-gdb",
-		run = "./install.sh",
+		run = "./install.sh"
 	})
 
 	use("godlygeek/tabular")
@@ -141,7 +142,6 @@ return require("packer").startup(function(use)
 
 	use {'mg979/vim-visual-multi', branch = 'master'}
 
-	use 'phaazon/hop.nvim'
 	use 'ggandor/leap.nvim'
 
 	use 'ray-x/go.nvim'

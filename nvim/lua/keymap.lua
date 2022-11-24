@@ -18,13 +18,12 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 -- vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
 -- vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
-vim.keymap.set('n', 'g1', ':LualineBuffersJump 1<CR>')
-vim.keymap.set('n', 'g2', ':LualineBuffersJump 2<CR>')
-vim.keymap.set('n', 'g3', ':LualineBuffersJump 3<CR>')
-vim.keymap.set('n', '[b', ':tabNext<CR>')
+-- vim.keymap.set('n', '')
+vim.keymap.set("n", "<s-tab>", ":CybuLastusedPrev<CR>")
+vim.keymap.set("n", "<tab>", ":CybuNext<CR>")
 vim.cmd[[ :nnoremap ;q :Bdelete<CR> ]]
 
-vim.keymap.set('n', 'lg', ':LazyGit<CR>')
+vim.keymap.set('n', 'Lg', ':LazyGit<CR>')
 
 vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })

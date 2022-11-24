@@ -36,7 +36,7 @@ navic.setup {
     Operator      = " ",
     TypeParameter = " ",
   },
-  highlight = true,
+  highlight = false,
   separator = "  ",
   depth_limit = 0,
   depth_limit_indicator = "..",
@@ -49,8 +49,8 @@ line.setup {
     highlight = true,
     colored = true,
     icons_enabled = true,
-    -- theme = 'auto',
-    theme = require("transparent").theme(),
+    theme = 'auto',
+    -- theme = require("transparent").theme(),
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -84,7 +84,7 @@ line.setup {
         'diff',
         icons_enabled = true,
         colored = true,
-        symbols = { added = ' ', modified = ' ', removed = ' ' },
+        symbols = { added = ' ', modified = ' ', removed = ' ' },
         diff_color = {
           added    = { fg = '#78BC61' },
           modified = { fg = '#9BCDF2' },
@@ -97,15 +97,16 @@ line.setup {
       }
     },
     -- lualine_c = { { navic.get_location, cond = navic.is_available } },
-		lualine_c = {  },
-    lualine_x = { 'encoding',
-      {
-        'fileformat',
-        highlight = true,
-        colored = true,
-        symbols = { unix = '', dos = '', mac = '' },
-        color = { fg = '#28B6FF' }
-      },
+    lualine_c = { 'hostname' },
+    lualine_x = {
+       'encoding',
+        {
+          'fileformat',
+          highlight = true,
+          colored = true,
+          symbols = { unix = '', dos = '', mac = '' },
+          color = { fg = '#28B6FF' }
+        },
       {
         'filename',
         file_status = true,
@@ -113,7 +114,7 @@ line.setup {
         path = 0,
         colored = true,
         symbols = {
-          modified = '➕', -- Text to show when the file is modified.
+          modified = '[+]', -- Text to show when the file is modified.
           readonly = '牢 ', -- Text to show when the file is non-modifiable or readonly.
           unnamed = '[No Name]', -- Text to show for unnamed buffers.
           newfile = '[New]', -- Text to show for new created file before first writting
@@ -149,10 +150,10 @@ line.setup {
     lualine_z = {}
   },
   tabline = {
-		lualine_a = { 'filename' },
-    lualine_b = { { navic.get_location, cond = navic.is_available }  },
+    lualine_a = { 'filename' },
+    lualine_b = { { navic.get_location, cond = navic.is_available } },
 
-		lualine_z = { 'buffers' }
+    lualine_z = { 'buffers' }
   },
   winbar = {},
   inactive_winbar = {},
@@ -160,3 +161,9 @@ line.setup {
     "quickfix",
   }
 }
+
+--require('cybu').setup({
+--  style = {
+--    border = 'rounded',
+--  }
+--})
