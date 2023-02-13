@@ -5,7 +5,7 @@ if not ok then
 	return
 end
 
-saga.init_lsp_saga({
+saga.setup({
 	-- "single" | "double" | "rounded" | "bold" | "plus"
 	border_style = "rounded",
 	code_action_lightbulb = {
@@ -17,6 +17,7 @@ saga.init_lsp_saga({
 		sign_priority = 20,
 		virtual_text = false,
 	},
+	symbol_in_winbar = { enable = false },
 	show_outline = {
 		win_with = 'db_ui',
 		win_width = 40,

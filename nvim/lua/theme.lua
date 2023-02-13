@@ -44,7 +44,7 @@ local vim = vim
 
 -- github
 -- require('github-theme').setup({
--- 	theme_style = "dark",
+-- 	theme_style = "light_colorblind",
 -- 	comment_style = "italic",
 -- 	keyword_style = "bold",
 --   function_style = "bold",
@@ -76,16 +76,16 @@ require("tokyonight").setup({
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
     comments = { italic = true },
-    keywords = { bold = true, italic = false },
-    functions = { bold = true, italic = true },
-    -- variables = {italic = true},
+    keywords = { italic = false, fg = '#B39148', bold = true },
+    functions = { italic = true },
+    variables = { fg = '#9cdcfe' },
     -- Background styles. Can be "dark", "transparent" or "normal"
     -- sidebars = "transparent", -- style for sidebars, see below
 		Background = "transparent",
     sidebars = "transparent", -- style for sidebars, see below
     floats = "transparent", -- style for floating windows
   },
-  sidebars = { "qf", "help", "terminal"  }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  sidebars = { "qf", "help", "terminal", "vista_kind"  }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   day_brightness = 0.9, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
   hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
   dim_inactive = true, -- dims inactive windows
@@ -99,7 +99,7 @@ require("tokyonight").setup({
   --- You can override specific highlights to use other groups or a hex color
   --- function will be called with a Highlights and ColorScheme table
   ---@param highlights Highlights
-})
+ })
 
 vim.cmd[[
 	colorscheme tokyonight

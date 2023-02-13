@@ -1,7 +1,12 @@
 local vim = vim
 
 local lspconfig = require("lspconfig")
+-- local coq = require "coq"
 local navic = require("nvim-navic")
+
+vim.g.coq_settings = {
+	  ['display.preview.border'] = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+}
 
 local handlers = {
 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
@@ -34,7 +39,7 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 -- auto start language server
-local servers = { "sumneko_lua", --[[ "clangd", ]] "tsserver", "cmake" } -- lsp-server
+local servers = { "lua_ls", --[[ "clangd", ]] "tsserver", "cmake" } -- lsp-server
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
@@ -45,9 +50,9 @@ end
 
 local path = "/home/dong/.config/nvim/language/cpp.yaml"
 
-lspconfig.clangd.setup{
+lspconfig.clangd.setup--[[ (coq.lsp_ensure_capabilities ]]{
 	cmd = {"clangd", "--all-scopes-completion", "--header-insertion=iwyu",  "--function-arg-placeholders", },
 	on_attach = on_attach,
 	handlers = handlers,
 	capabilities = capabilities,
-}
+}--[[ ) ]]
