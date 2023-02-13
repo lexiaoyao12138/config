@@ -67,8 +67,6 @@ vim.diagnostic.config({
 
 -- require("autoSave")
 require("colorizer").setup()
--- 顶部状态栏
--- require("tabline_config")
 -- nvimGDB
 require("nvimGDB")
 --comment

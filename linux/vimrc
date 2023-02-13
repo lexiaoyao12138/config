@@ -1,0 +1,69 @@
+set nu
+set ignorecase
+set smartcase
+syntax on
+set nocompatible
+set autoread
+filetype off
+:inoremap jj <Esc>
+:noremap <Tab> :bp<CR>
+
+let g:polyglot_disabled = ['markdown', 'c', 'autoindent']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='onedark'
+let g:ariline_powerline_fonts = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+"execute pathogen#infect()
+" syntax
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_cpp_check_header = 1
+"let g:syntastic_cpp_no_include_search = 1
+"let g:syntastic_aggregate_errors = 1
+"let g:syntastic_enable_perl_checker = 1
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_c_checkers = ['clang', 'gcc', 'make']
+"let g:syntastic_c_compiler = 'clang'
+"let g:syntastic_c_compiler_options = '-std=gnu99'
+
+"let b:ale_fixers = ['clang']
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c': ['clang'],
+\               'cc':['clang++']
+\}
+"let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '🚨'
+let g:ale_sign_warning = '🐞'
+let g:ale_completion_autoimport = 0
+let g:ale_sign_column_always = 1
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'joshdick/onedark.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'scrooloose/syntastic'
+Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'w0rp/ale'
+call vundle#end()
+filetype plugin indent on
+
+colorscheme onedark

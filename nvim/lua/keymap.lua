@@ -17,17 +17,19 @@ vim.keymap.set("n", "gl", ":Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 -- vim.api.nvim_set_keymap("n", "[b", ":BufferLineCycleNext<CR>", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "]b", ":BufferLineCyclePrev<CR>", { noremap = true })
--- vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
+vim.keymap.set('n', '<Tab>', ':TablineBufferNext<CR>')
 -- vim.keymap.set('n', '')
-vim.keymap.set("n", "<s-tab>", ":CybuLastusedPrev<CR>")
-vim.keymap.set("n", "<tab>", ":CybuNext<CR>")
+-- vim.keymap.set("n", "<s-tab>", ":CybuLastusedPrev<CR>")
+-- vim.keymap.set("n", "<tab>", ":CybuNext<CR>")
 vim.cmd[[ :nnoremap ;q :Bdelete<CR> ]]
 
 vim.keymap.set('n', 'Lg', ':LazyGit<CR>')
 
-vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<c-/>", "<Plug>kommentary_line_default", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-f>", ":ToggleTerm direction=float<CR>", {noremap = true })
+vim.api.nvim_set_keymap("n", "<c-\\>", ":ToggleTerm direction=horizontal<CR>", {noremap = true })
 
 -- nvimtree
 vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", { noremap = true })

@@ -17,7 +17,10 @@ saga.setup({
 		sign_priority = 20,
 		virtual_text = false,
 	},
-	symbol_in_winbar = { enable = false },
+	symbol_in_winbar = {
+    enable = true,
+    separator = "  ",
+  },
 	show_outline = {
 		win_with = 'db_ui',
 		win_width = 40,
