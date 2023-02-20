@@ -1,50 +1,22 @@
 local vim = vim
 
--- vim.g.gruvbox_material_background = "medium" -- hard medium soft
--- vim.g.gruvbox_material_foreground = "original" -- material mix original
--- -- vim.g.gruvbox_material_disable_italic_comment=1
--- vim.g.gruvbox_material_enable_bold = 1
--- vim.g.gruvbox_material_enable_italic = 0
--- vim.g.gruvbox_material_diagnostic_text_highlight = 1
--- vim.g.gruvbox_material_diagnostic_text_highlight = 1
--- vim.g.gruvbox_material_diagnostic_line_highlight = 1
--- vim.g.gruvbox_material_statusline_style = 1
--- vim.g.gruvbox_material_lightline_disable_bold = 1
--- vim.g.gruvbox_material_current_word="italic"
--- vim.api.nvim_command(":colorscheme gruvbox-material")
+vim.g.gruvbox_material_background = "medium" -- hard medium soft
+vim.g.gruvbox_material_foreground = "original" -- material mix original
+-- vim.g.gruvbox_material_disable_italic_comment=1
+vim.g.gruvbox_material_enable_bold = 1
+vim.g.gruvbox_material_enable_italic = 0
+vim.g.gruvbox_material_diagnostic_text_highlight = 1
+vim.g.gruvbox_material_diagnostic_text_highlight = 1
+vim.g.gruvbox_material_diagnostic_line_highlight = 1
+vim.g.gruvbox_material_statusline_style = 1
+vim.g.gruvbox_material_lightline_disable_bold = 1
+vim.g.gruvbox_material_current_word="italic"
+vim.api.nvim_command(":colorscheme gruvbox-material")
 
-
--- vscode
--- local c = require('vscode.colors')
--- require('vscode').setup({
---     -- Enable transparent background
---     transparent = true,
---
---     -- Enable italic comment
---     italic_comments = true,
---
---     -- Disable nvim-tree background color
---     disable_nvimtree_bg = true,
---
---     -- Override colors (see ./lua/vscode/colors.lua)
---     color_overrides = {
---         vscLineNumber = '#FFFFFF',
---     },
---
---     -- Override highlight groups (see ./lua/vscode/theme.lua)
---     group_overrides = {
---         -- this supports the same val table as vim.api.nvim_set_hl
---         -- use colors from this colorscheme by requiring vscode.colors!
---         Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
---     }
--- })
---
---
--- vim.api.nvim_command(":colorscheme vscode")
 
 -- github
 -- require('github-theme').setup({
--- 	theme_style = "light_colorblind",
+-- 	theme_style = "dark",
 -- 	comment_style = "italic",
 -- 	keyword_style = "bold",
 --   function_style = "bold",
@@ -77,7 +49,7 @@ require("tokyonight").setup({
     -- Value is any valid attr-list value for `:help nvim_set_hl`
     comments = { italic = true },
     keywords = { italic = false, fg = '#B39148', bold = true },
-    functions = { italic = true },
+    functions = { italic = false, bold = true },
     variables = { fg = '#9cdcfe' },
     -- Background styles. Can be "dark", "transparent" or "normal"
     -- sidebars = "transparent", -- style for sidebars, see below
@@ -101,6 +73,39 @@ require("tokyonight").setup({
   ---@param highlights Highlights
  })
 
+
+-- require('onedark').setup  {
+--     -- Main options --
+--     style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+--     transparent = true,  -- Show/hide background
+--     term_colors = true, -- Change terminal color as per the selected theme style
+--     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+--     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+--
+--     -- Change code style ---
+--     -- Options are italic, bold, underline, none
+--     -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+--     code_style = {
+--         comments = 'italic',
+--         keywords = 'none',
+--         functions = 'bold',
+--         strings = 'none',
+--         variables = 'none'
+--     },
+--
+--     -- Lualine options --
+--     lualine = {
+--         transparent = false, -- lualine center bar transparency
+--     },
+--
+--     -- Plugins Config --
+--     diagnostics = {
+--         darker = true, -- darker colors for diagnostic
+--         undercurl = false,   -- use undercurl instead of underline for diagnostics
+--         background = false,    -- use background color for virtual text
+--     },
+-- }
+-- require('onedark').load()
 vim.cmd[[
 	colorscheme tokyonight
 ]]

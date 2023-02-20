@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-BasedOnStyle:  GNU
+BasedOnStyle:  Google
 AccessModifierOffset: -2
 AlignArrayOfStructures: Right
 AlignAfterOpenBracket: Align
@@ -21,7 +21,7 @@ AllowShortLambdasOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: WithoutElse
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterDefinitionReturnType: None
-AlwaysBreakAfterReturnType: TopLevelDefinitions
+AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
@@ -87,7 +87,7 @@ IncludeIsMainSourceRegex: ''
 IndentCaseLabels: false
 IndentCaseBlocks: true
 IndentGotoLabels: true
-IndentPPDirectives: None
+IndentPPDirectives: AfterHash
 IndentExternBlock: AfterExternBlock
 IndentWidth:     2
 IndentWrappedFunctionNames: false

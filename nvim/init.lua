@@ -84,7 +84,7 @@ require("lsp_config")
 require("lsp_age")
 -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 -- require('nvim-lightbulb').setup({autocmd = {enabled = true}})
-require("nvim-tree_config")
+-- require("nvim-tree_config")
 require("ill")
 
 require('keymap')

@@ -18,10 +18,11 @@ return require("packer").startup(function(use)
 	use("p00f/clangd_extensions.nvim")
 	use "SmiteshP/nvim-navic"
 	-- theme
-	use("Mofiqul/vscode.nvim")
 	use({ "sainnhe/gruvbox-material" }) -- theme gruvbox
 	use({ 'projekt0n/github-nvim-theme' })
 	use 'folke/tokyonight.nvim'
+	use 'navarasu/onedark.nvim'
+	use 'tomasiser/vim-code-dark'
 
 	use({ "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' })
 	use({ 'nvim-treesitter/nvim-treesitter-context' }) -- 顶栏显示当前的函数
@@ -35,8 +36,6 @@ return require("packer").startup(function(use)
 	use("folke/twilight.nvim")
 
 	use({ "windwp/nvim-autopairs" })
-
-	-- use({ "p00f/nvim-ts-rainbow" })
 
 	use 'kdheepak/tabline.nvim'
 	use 'moll/vim-bbye'
@@ -81,7 +80,8 @@ return require("packer").startup(function(use)
 
 	use({ "folke/trouble.nvim" })
 
-	use("lukas-reineke/indent-blankline.nvim")
+	-- use("lukas-reineke/indent-blankline.nvim")
+	use "yaocccc/nvim-hlchunk"
 
 	-- 底部状态
 	use({ "nvim-lualine/lualine.nvim" })
