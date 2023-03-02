@@ -8,3 +8,4 @@ services:
                         - 7890:7890
                 volumes:
                         - $HOME/Clash:/root/.config/clash
+ # git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard ui
