@@ -63,6 +63,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/syntastic'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'w0rp/ale'
+Plugin 'yaocccc/vim-hlchunk'
 call vundle#end()
 filetype plugin indent on
 
